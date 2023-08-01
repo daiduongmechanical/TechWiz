@@ -15,10 +15,16 @@ use App\Http\Controllers\adminController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/manage', [adminController::class, 'index']);
+
+
+
+
 Route::get('/user/list', [UserController::class, 'showList']);
 Route::get('/user', [UserController::class, 'index']);
 
-Route::get('/admin', [adminController::class, 'index']);
+
+
+Route::get('/', function () {
+    return view('welcome');
+});
