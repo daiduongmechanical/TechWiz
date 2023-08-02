@@ -25,10 +25,17 @@ return [
         'token' => env('POSTMARK_TOKEN'),
     ],
 
+
+
     'ses' => [
         'key' => env('AWS_ACCESS_KEY_ID'),
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
+    ],
+    'facebook' => [
+        'client_id' => '2281069982064721', //USE FROM FACEBOOK DEVELOPER ACCOUNT
+        'client_secret' => '9a138e06602da46ded69b0922bc99e2f', //USE FROM FACEBOOK DEVELOPER ACCOUNT
+        'redirect' => "http://localhost:8000/facebook/callback"
     ],
 
 ];

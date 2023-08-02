@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\adminController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,13 +16,33 @@ use App\Http\Controllers\adminController;
 |
 */
 
-Route::get('/manage', [adminController::class, 'index']);
+
+
 
 
 
 
 Route::get('/user/list', [UserController::class, 'showList']);
 Route::get('/user', [UserController::class, 'index']);
+
+
+Route::prefix('facebook')->name('facebook.')->group(function () {
+    Route::get('auth', [adminController::class, 'loginUsingFacebook'])->name('login');
+    Route::get('callback', [adminController::class, 'callbackFromFacebook'])->name('callback');
+});
+
+
+Route::prefix('manage')->group(function () {
+    Route::get('/list-user', [UserController::class, 'listUsers']);
+    Route::get('/detailUser/{id}', [UserController::class, 'detailUser']);
+    Route::get('/blockUser/{id}', [UserController::class, 'blockUser']);
+    Route::get('/', function () {
+        return view('test1');
+    });
+});
+
+
+
 
 
 

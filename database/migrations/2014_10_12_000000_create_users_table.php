@@ -16,8 +16,11 @@ return new class extends Migration
             $table->string('fullName');
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('avatar');
+            $table->string('phone');
             $table->dateTime('dob');
             $table->boolean("role");
+            $table->boolean("block")->default(false);
             $table->rememberToken();
             $table->timestamps();
         });

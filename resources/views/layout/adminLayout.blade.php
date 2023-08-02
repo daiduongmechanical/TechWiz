@@ -13,6 +13,11 @@
   <link rel="stylesheet" href="admin/plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="admin/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+  <script src="admin/plugins/jquery/jquery.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -57,11 +62,13 @@
   <!-- REQUIRED SCRIPTS -->
 
   <!-- jQuery -->
-  <script src="admin/plugins/jquery/jquery.min.js"></script>
+
   <!-- Bootstrap 4 -->
   <script src="admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- AdminLTE App -->
   <script src="admin/dist/js/adminlte.min.js"></script>
-</body>
 
-</html>
+  <script src="admin//dist/js/managetable.js"></script>
+  < /body>
+
+    < /html>
