@@ -34,10 +34,17 @@ class UserController extends Controller
 
     public function blockUser($id)
     {
+        $success = "";
         $user = User::find($id);
-        $user->block = true;
+        if ($user->block === 1) {
+            $user->block = false;
+            $success = "Restore user successfully";
+        } else {
+            $user->block = true;
+            $success = "Block user successfully";
+        }
         $user->save();
-        $success = "Block user successfully";
+
         Session()->put('success', $success);
 
         return back();

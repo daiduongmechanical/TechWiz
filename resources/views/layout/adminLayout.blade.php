@@ -68,7 +68,9 @@
   <!-- AdminLTE App -->
   <script src="admin/dist/js/adminlte.min.js"></script>
 
-  <script src="admin//dist/js/managetable.js"></script>
+  <script src="admin/dist/js/managetable.js"></script>
+  <script src="admin/dist/js/handlemodalNotify.js"></script>
+
   < /body>
 
     < /html>
