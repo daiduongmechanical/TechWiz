@@ -11,3 +11,10 @@ $(".btn-block-user").on("click", function (event) {
       : "Are you sure restore this user"
   );
 });
+
+//delete admin
+
+$(".btn-delete-admin").on("click", function (event) {
+  let data = $(this).attr("data");
+  $(".btn-action-delete-admin").attr("href", `manage/delete/${data}`);
+});

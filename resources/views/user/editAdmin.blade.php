@@ -12,18 +12,18 @@
                     <div class="card-header">
                         <h3 class="card-title">Edit Product</h3>
                     </div>
-                    
+
 
                     {{-- check error --}}
-                    
+
                     @if (session('error'))
-                        <div class="alert alert-danger">
-                            {{ session('error')}}
-                        </div>
+                    <div class="alert alert-danger">
+                        {{ session('error')}}
+                    </div>
                     @endif
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form role="form" action="{{ url('admin/postEdit') }}" method="post" enctype="multipart/form-data">
+                    <form role="form" action="{{ url('manage/postEdit') }}" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <div class="card-body">
                             <div class="form-group">
@@ -49,17 +49,17 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="form-group">
                                 <label for="txt-dob">DoB</label>
-                                <input type="date" class="form-control" id="txt-dob" max="2005-01-01" name="dob" value="{{$admin->dob}}">
+                                <input type="date" class="form-control" id="txt-dob" max="2005-01-01" name="dob" value="{{substr($admin->dob, 0, 10)}}">
                             </div>
                             <div class="form-group">
                                 <label for="txt-price">Role</label>
-                                <input type="text" class="form-control" id="txt-role" name="role" value="{{$admin->role}}">
+                                <input readonly type="text" class="form-control" id="txt-role" name="role" value="{{$admin->role==1 ?'Admin':'User'}}">
                             </div>
 
-                            
+
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer">
@@ -76,20 +76,19 @@
 
 @section ('script-content')
 <script>
- const togglePasswordButton = document.getElementById("togglePassword");
-const passwordField = document.getElementById("txt-password");
+    const togglePasswordButton = document.getElementById("togglePassword");
+    const passwordField = document.getElementById("txt-password");
 
-togglePasswordButton.addEventListener("click", function () {
-    const type = passwordField.getAttribute("type") === "password" ? "text" : "password";
-    passwordField.setAttribute("type", type);
+    togglePasswordButton.addEventListener("click", function() {
+        const type = passwordField.getAttribute("type") === "password" ? "text" : "password";
+        passwordField.setAttribute("type", type);
 
-    // Thay đổi icon "eye" thành "eye-slash" khi ẩn mật khẩu và ngược lại
-    if (type === "password") {
-        togglePasswordButton.innerHTML = '<i class="fa fa-eye" aria-hidden="true"></i>';
-    } else {
-        togglePasswordButton.innerHTML = '<i class="fa fa-eye-slash" aria-hidden="true"></i>';
-    }
-});
+        // Thay đổi icon "eye" thành "eye-slash" khi ẩn mật khẩu và ngược lại
+        if (type === "password") {
+            togglePasswordButton.innerHTML = '<i class="fa fa-eye" aria-hidden="true"></i>';
+        } else {
+            togglePasswordButton.innerHTML = '<i class="fa fa-eye-slash" aria-hidden="true"></i>';
+        }
+    });
 </script>
 @endsection
-

@@ -50,7 +50,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{url('admin/index')}}" class="nav-link bg-light text-dark">
+                            <a href="{{url('manage/index')}}" class="nav-link bg-light text-dark">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Admin management</p>
 

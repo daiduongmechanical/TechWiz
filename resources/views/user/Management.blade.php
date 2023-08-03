@@ -1,91 +1,89 @@
-@extends ('layout.adminLayout')
-@section('title', 'Product List')
-@section ('content')
+@extends('layout.adminLayout')
+@section('title', 'View Product')
+@section('content')
 
-<!-- Content Header (Page header) -->
-<section class="content-header">
-    <div class="container-fluid">
-        <div class="row mb-2">
-            <div class="col-sm-6">
-                <h1>Admin Management</h1>
-            </div>
-            <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active">List Admin</li>
-                </ol>
+
+<div class="card-body  p-2">
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header alert-warning">
+                    <h5 class="modal-title " id="exampleModalLabel" style="font-size: 20px; font-weight:bold">Block Notify</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body notify-text-block-user" style="font-size: 20px; font-weight:bold">
+                    Are you sure delete tis Admin ?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <a type="button" class="btn btn-danger btn-action-delete-admin">Delete</a>
+                </div>
             </div>
         </div>
-    </div><!-- /.container-fluid -->
-</section>
-
-<!-- Main content -->
-
-<br><br><br><br>
-
-
-
-<section class="content">
-    <div class="row">
-        <div class="col-12">
-            <div class="card">
-                @if (session('status'))
-                    <div class="alert alert-success">
-                        {{ session('status')}}
-                    </div>
-                @endif
-                <div class="card-header">
-                    <h3 class="card-title">List Admin</h3>
-                </div>
-                <!-- /.card-header -->
-                <div class="card-body">
-                    <table id="product" class="table table-bordered table-hover">
-                        <thead>
-                        <tr>
-                            <th>Id</th>
-                            <th>Full Name</th>
-                            <th>Email</th>
-                            <th>Password</th>
-                            <th>Dob</th>
-                            <th>Role</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @foreach($admins as $a)
-                        <tr>
-                            <td>{{ $a->id }}</td>
-                            <td>{{ $a->fullName }}</td>
-                            <td>{{ $a->email }}</td>
-                            <td>{{ $a->password }}</td>
-                            <td>{{ $a->dob }}</td>
-                            <td>{{ $a->role }}</td>
-
-   
-                            <td class="text-right">
-                               
-                                <a class="btn btn-info btn-sm" href="{{ url('admin/edit/'.$a->id) }}">
-                                    <i class="fas fa-pencil-alt"></i> Edit
-                                </a>
-                                <a class="btn btn-danger btn-sm" href="{{ url('admin/delete/'.$a->id) }}" onclick="return confirm('Are you sure??')">
-                                    
-                                    <i class="fas fa-trash"></i> Delete
-                                </a>
-                            </td>
-                           
-                        </tr>
-                        @endforeach
-                        </tbody>
-                        <tfoot>
-                       
-                        </tfoot>
-                    </table>
-                </div>
-                <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-        </div>
-        <!-- /.col -->
     </div>
-    <!-- /.row -->
-</section>
+
+    <!-- end Modal -->
+
+    @if (session('success'))
+    <div class="alert {{session('success')!='Block user successfully'?'alert-success':'alert-danger'}}">{{ session('success') }}</div>
+    {{session()->forget('success')}}
+    @endif
+    <div class=" d-flex align-items-center mb-4">
+        <h1>Admin management</h1>
+    </div>
+    <div class="card-body">
+        <table id="admin-management-user" class="table table-striped table-bordered  border-2 border-dark">
+            <thead class="thead-dark ">
+                <tr>
+                    <th>Id</th>
+                    <th>Full Name</th>
+                    <th>Email</th>
+
+                    <th>Dob</th>
+
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($admins as $a)
+                <tr>
+                    <td>{{ $a->id }}</td>
+                    <td>{{ $a->fullName }}</td>
+                    <td>{{ $a->email }}</td>
+
+                    <td>{{ $a->dob }}</td>
+
+
+
+                    <td class="text-right">
+
+                        <a class="btn btn-info btn-sm" style="font-size: 18px; font-weight:600" href="{{ url('manage/edit/'.$a->id) }}">
+                            <i class="fas fa-pencil-alt"></i> Edit
+                        </a>
+                        <button type="button" class="btn btn-danger btn-sm text-dark mr-1 btn-delete-admin" style="font-size: 18px; font-weight:600" data="{{$a->id}}" data-toggle="modal" data-target="#exampleModal">
+                            Delete
+                        </button>
+                    </td>
+
+                </tr>
+                @endforeach
+            </tbody>
+            <tfoot>
+
+            </tfoot>
+        </table>
+    </div>
+
+</div>
+</div>
+</div>
+
+
+
+
 @endsection
