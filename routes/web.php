@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\adminController;
+use App\Http\Controllers\CommentController;
 
 
 /*
@@ -30,6 +31,13 @@ Route::prefix('facebook')->name('facebook.')->group(function () {
     Route::get('auth', [adminController::class, 'loginUsingFacebook'])->name('login');
     Route::get('callback', [adminController::class, 'callbackFromFacebook'])->name('callback');
 });
+
+
+Route::prefix('comment')->group(function () {
+    Route::get('/addcomment', [CommentController::class, 'addComment']);
+});
+
+
 
 
 Route::prefix('manage')->group(function () {
