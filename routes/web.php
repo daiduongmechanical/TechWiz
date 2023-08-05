@@ -1,10 +1,9 @@
 <?php
 
+use App\Http\Controllers\Auth\ProviderController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\adminController;
-use App\Http\Controllers\CommentController;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -17,52 +16,26 @@ use App\Http\Controllers\CommentController;
 |
 */
 
-
-
-
-
-
-
-Route::get('/user/list', [UserController::class, 'showList']);
-Route::get('/user', [UserController::class, 'index']);
-
-
-Route::prefix('facebook')->name('facebook.')->group(function () {
-    Route::get('auth', [adminController::class, 'loginUsingFacebook'])->name('login');
-    Route::get('callback', [adminController::class, 'callbackFromFacebook'])->name('callback');
-});
-
-
-Route::prefix('comment')->group(function () {
-    Route::get('/addcomment', [CommentController::class, 'addComment']);
-});
-
-
-
-
-Route::prefix('manage')->group(function () {
-    Route::get('/list-user', [UserController::class, 'listUsers']);
-    Route::get('/detailUser/{id}', [UserController::class, 'detailUser']);
-    Route::get('/blockUser/{id}', [UserController::class, 'blockUser']);
-    Route::get('/index', [UserController::class, 'index'])->name('admin.index');
-    Route::get('/show/{id}', [UserController::class, 'show'])->name('admin.show');
-    Route::get('/edit/{id}', [UserController::class, 'edit'])->name('admin.edit');
-    Route::post('/postEdit', [UserController::class, 'postEdit'])->name('admin.postEdit');
-    Route::get('/delete/{id}', [UserController::class, 'destroy'])->name('admin.delete');
-    Route::get('/', function () {
-        return view('test1');
-    });
-});
-
-
-
-
-
-
-
-
-
-
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboard');
+})->name('dashboard');
+Route::get('/dashboard2', function () {
+    return view('dashboard2');
+})->name('dashboard2');
+Route::get('/home', [HomeController::class, 'index']);
+Route::get('/auth/{provider}/redirect', [ProviderController::class, 'redirect']);
+
+Route::get('/auth/{provider}/callback', [ProviderController::class, 'callback']);
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })
+//     // ->middleware(['auth', 'verified'])
+//     ->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+require __DIR__ . '/auth.php';
