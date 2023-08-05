@@ -1,4 +1,4 @@
-@extends('layout.adminLayout')
+@extends('admin.app')
 @section('title', 'View Product')
 @section('content')
 
@@ -51,7 +51,7 @@
             @foreach($user as $user)
             <tr>
                 <td>{{$user->id}} </td>
-                <td>{{$user->fullName}}</td>
+                <td>{{$user->name}}</td>
                 <td>{{$user->email}}</td>
                 <td>{{$user->dob}}</td>
                 <td>{{$user->created_at}}</td>
@@ -64,7 +64,7 @@
                         @endif {{$user->block===1 ?"Restore" :"Block"}}
                     </button>
                     <button type="button" class="btn btn-primary btn-sm ">
-                        <a class="text-dark " style="font-size: 18px; font-weight:600" href="{{url('/manage/detailUser/'.$user->id)}}"><i class="fas fa-eye text-light"></i> View</a>
+                        <a class="text-dark " style="font-size: 18px; font-weight:600" href="{{url('/admin/detailUser/'.$user->id)}}"><i class="fas fa-eye text-light"></i> View</a>
                     </button>
                 </td>
 

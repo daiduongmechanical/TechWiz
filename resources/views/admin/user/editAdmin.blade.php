@@ -1,4 +1,4 @@
-@extends ('layout.adminLayout')
+@extends ('admin..app')
 @section('title', 'Product List')
 @section ('content')
 
@@ -23,7 +23,7 @@
                     @endif
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form role="form" action="{{ url('manage/postEdit') }}" method="post" enctype="multipart/form-data">
+                    <form role="form" action="{{ url('admin/postEdit') }}" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <div class="card-body">
                             <div class="form-group">
@@ -32,7 +32,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="txt-name">Full Name</label>
-                                <input type="text" class="form-control" id="txt-name" name="name" value="{{$admin->fullName}}">
+                                <input type="text" class="form-control" id="txt-name" name="name" value="{{$admin->name}}">
                             </div>
                             <div class="form-group">
                                 <label for="txt-price">Email</label>
@@ -50,10 +50,10 @@
                                 </div>
                             </div>
 
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label for="txt-dob">DoB</label>
                                 <input type="date" class="form-control" id="txt-dob" max="2005-01-01" name="dob" value="{{substr($admin->dob, 0, 10)}}">
-                            </div>
+                            </div> -->
                             <div class="form-group">
                                 <label for="txt-price">Role</label>
                                 <input readonly type="text" class="form-control" id="txt-role" name="role" value="{{$admin->role==1 ?'Admin':'User'}}">

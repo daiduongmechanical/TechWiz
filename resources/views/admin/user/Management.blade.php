@@ -1,4 +1,4 @@
-@extends('layout.adminLayout')
+@extends('admin.app')
 @section('title', 'View Product')
 @section('content')
 
@@ -44,7 +44,7 @@
                     <th>Full Name</th>
                     <th>Email</th>
 
-                    <th>Dob</th>
+
 
                     <th>Action</th>
                 </tr>
@@ -53,16 +53,16 @@
                 @foreach($admins as $a)
                 <tr>
                     <td>{{ $a->id }}</td>
-                    <td>{{ $a->fullName }}</td>
+                    <td>{{ $a->name }}</td>
                     <td>{{ $a->email }}</td>
 
-                    <td>{{ $a->dob }}</td>
+
 
 
 
                     <td class="text-right">
 
-                        <a class="btn btn-info btn-sm" style="font-size: 18px; font-weight:600" href="{{ url('manage/edit/'.$a->id) }}">
+                        <a class="btn btn-info btn-sm" style="font-size: 18px; font-weight:600" href="{{ url('admin/edit/'.$a->id) }}">
                             <i class="fas fa-pencil-alt"></i> Edit
                         </a>
                         <button type="button" class="btn btn-danger btn-sm text-dark mr-1 btn-delete-admin" style="font-size: 18px; font-weight:600" data="{{$a->id}}" data-toggle="modal" data-target="#exampleModal">
