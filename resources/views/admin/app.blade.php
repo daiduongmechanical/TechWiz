@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>AdminLTE 3 | Starter</title>
     <base href="{{asset("/")}}">
 
@@ -16,6 +17,8 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
     <script src="admins/plugins/jquery/jquery.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+    <link rel="stylesheet" href="{{ asset('css/chattle_admin.min.css') }}">
 
 
 </head>
@@ -70,6 +73,12 @@
 
     <script src="admins/dist/js/managetable.js"></script>
     <script src="admins/dist/js/handlemodalNotify.js"></script>
+
+{{-- chat box --}}
+    <script src="/js/pusher.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.2.min.js" integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA=" crossorigin="anonymous"></script>
+    <script src="/js/chattle_admin.js"></script>
+{{-- end chat box --}}
 
 </body>
 

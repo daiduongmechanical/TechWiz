@@ -5,6 +5,14 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+// chat box
+use App\Http\Controllers\Chat\AdminChatController;
+use App\Http\Controllers\Chat\CreateController;
+use App\Http\Controllers\Chat\GetChatsController;
+use App\Http\Controllers\Chat\GetMessagesController;
+use App\Http\Controllers\Chat\PostMessageController;
+// end chat box
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,3 +47,16 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__ . '/auth.php';
+
+
+
+//realtime chat box
+Route::prefix('chattle')->group(function () {
+    Route::view('chat', 'chat.chat');
+    Route::post('create-chat', CreateController::class);
+    Route::post('post-message', PostMessageController::class);
+    Route::get('get-messages', GetMessagesController::class);
+    Route::get('chat-admin', AdminChatController::class);
+    Route::get('get-chats', GetChatsController::class);
+});
+// end chat box
