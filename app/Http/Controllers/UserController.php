@@ -11,13 +11,13 @@ class UserController extends Controller
     public function listUsers()
     {
         $user = User::where('is_admin', 0)->get();
-        return view('admin.user.userManagement')->with('user', $user);
+        return view('user.userManagement')->with('user', $user);
     }
 
     public function detailUser($id)
     {
         $user = User::find($id);
-        return view('admin.user.detailUser')->with('user', $user);
+        return view('user.detailUser')->with('user', $user);
     }
 
     public function blockUser($id)
@@ -42,7 +42,7 @@ class UserController extends Controller
     {
         $admins = User::where('is_admin', 1)->get();
 
-        return view('admin.user.Management', compact('admins'));
+        return view('user.Management', compact('admins'));
     }
 
 
@@ -50,7 +50,7 @@ class UserController extends Controller
     public function edit($id)
     {
         $admin = User::findOrFail($id);
-        return view('admin.user.editAdmin', compact('admin'));
+        return view('user.editAdmin', compact('admin'));
     }
 
     public function postEdit(Request $request)
