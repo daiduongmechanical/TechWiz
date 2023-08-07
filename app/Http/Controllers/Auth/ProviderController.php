@@ -20,7 +20,9 @@ class ProviderController extends Controller
         try {
 
             $SocialUser = Socialite::driver($provider)->user();
-
+if(User::where('email',$SocialUser->getEmail())->exists()){
+    return redirect('/login')->withErrors(['email'=>'This email use different method to login']);
+}
             $user = User::where(['provider' => $provider, 'provider_id' => $SocialUser->id])->first();
             if (!$user) {
                 $user = User::create([
