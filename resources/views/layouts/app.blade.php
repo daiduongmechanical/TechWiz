@@ -21,7 +21,7 @@
 @include('chat.chat')
 <body class="font-sans antialiased">
     <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
- 
+
         @include('layouts.navigation')
 
         <!-- Page Heading -->
@@ -32,15 +32,19 @@
                 </div>
             </header>
         @endif
-     
+
         <!-- Page Content -->
         <main>
             {{ $slot }}
-           
+
         </main>
+
+
     </div>
 
-
+<footer>
+    <p class="">&copy; Copyright Bla Bla</p>
+</footer>
 
     <script src="js/jquery.min.js"></script>
     <script src="js/sweetalert.min.js"></script>
