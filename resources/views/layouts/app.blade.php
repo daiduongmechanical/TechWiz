@@ -12,14 +12,16 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
+
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
- <link rel="stylesheet" href="{{ asset('/css/chattle_style.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/chattle_style.min.css') }}">
 </head>
-@include('chat.chat')
+
 <body class="font-sans antialiased">
+    @include('chat.chat')
     <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
 
         @include('layouts.navigation')
@@ -40,21 +42,21 @@
         </main>
 
 
+        @include('layouts.footer')
     </div>
 
-<footer>
-    <p class="">&copy; Copyright Bla Bla</p>
-</footer>
 
     <script src="js/jquery.min.js"></script>
     <script src="js/sweetalert.min.js"></script>
 
     {{-- chatbox --}}
-<script src="/js/pusher.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.2.min.js" integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA=" crossorigin="anonymous"></script>
-<script src="/js/jquery-cookie.js"></script>
-<script src="/js/chattle_customer.js"></script>
-  {{-- end chat box --}}
+    <script src="/js/pusher.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.2.min.js"
+        integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA=" crossorigin="anonymous"></script>
+    <script src="/js/jquery-cookie.js"></script>
+
+    <script src="/js/chattle_customer.js"></script>
+    {{-- end chat box --}}
 </body>
 
 </html>
