@@ -34,7 +34,7 @@
                     Submit
                 </button>
             </form>
-            @endif
+
         </div>
         <div id="messagesContainer" class="chat-area" style="display:none">
             <div class="message-wrapper">
