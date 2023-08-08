@@ -12,6 +12,7 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
+
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -21,6 +22,7 @@
 @include('chat.chat')
 
 <body class="font-sans antialiased">
+    @include('chat.chat')
     <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
 
         <header>
@@ -33,19 +35,21 @@
 
         </main>
 
+    </div>
+    <div class="relative bottom-0">
 
+        @include('layouts.footer')
     </div>
 
-    <footer>
-        <p class="">&copy; Copyright Bla Bla</p>
-    </footer>
+
 
     <script src="js/jquery.min.js"></script>
     <script src="js/sweetalert.min.js"></script>
 
     {{-- chatbox --}}
     <script src="/js/pusher.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.2.min.js" integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.2.min.js"
+        integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA=" crossorigin="anonymous"></script>
     <script src="/js/jquery-cookie.js"></script>
     <script src="/js/chattle_customer.js"></script>
     <script src="/js/handleLogout.js"></script>
