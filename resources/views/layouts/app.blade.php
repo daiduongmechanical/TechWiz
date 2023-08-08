@@ -41,9 +41,7 @@
         @include('layouts.footer')
     </div>
 
-    <footer>
-        <p class="">&copy; Copyright Bla Bla</p>
-    </footer>
+
 
     <script src="js/jquery.min.js"></script>
     <script src="js/sweetalert.min.js"></script>
