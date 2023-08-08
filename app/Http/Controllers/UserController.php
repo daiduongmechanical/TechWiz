@@ -2,12 +2,43 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Chat;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Message;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
+
+
+
+
+
+    public function home()
+    {
+        return \view('admin.app');
+    }
+
+
+    public function test()
+    {
+        $count = 0;
+        $chatAll = Chat::withCount('unseen_messages')->orderBy('unseen_messages_count', 'desc')->get();
+
+
+        foreach ($chatAll as $chat) {
+            $check = User::where('email', $chat->email)->first();
+            if ($check == null) {
+                $chat['owner'] = null;
+            } else {
+                $chat['owner'] = $check;
+            }
+        }
+        return $chatAll;
+    }
+
     public function listUsers()
     {
         $user = User::where('is_admin', 0)->get();
@@ -32,10 +63,7 @@ class UserController extends Controller
             $success = "Block user successfully";
         }
         $user->save();
-
-        Session()->put('success', $success);
-
-        return back();
+        return back()->with('success', $success);
     }
 
     public function index()
@@ -55,13 +83,7 @@ class UserController extends Controller
 
     public function postEdit(Request $request)
     {
-
-
         // Validate the input data here, e.g., using the $request->validate() method
-
-
-
-
         $user = User::find($request->id);
         $user->name = $request->name;
         $user->email = $request->email;

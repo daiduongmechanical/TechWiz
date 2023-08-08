@@ -7,9 +7,10 @@
         <li class="nav-item d-none d-sm-inline-block">
             <a href="/" class="nav-link">Home</a>
         </li>
-        {{-- <li class="nav-item d-none d-sm-inline-block">
-            <a href="#" class="nav-link">Contact</a>
-        </li> --}}
+
+
+
+
     </ul>
 
     <!-- Right navbar links -->
@@ -22,8 +23,7 @@
             <div class="navbar-search-block">
                 <form class="form-inline">
                     <div class="input-group input-group-sm">
-                        <input class="form-control form-control-navbar" type="search" placeholder="Search"
-                            aria-label="Search">
+                        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
                         <div class="input-group-append">
                             <button class="btn btn-navbar" type="submit">
                                 <i class="fas fa-search"></i>
@@ -39,63 +39,73 @@
 
         <!-- Messages Dropdown Menu -->
         <li class="nav-item dropdown">
+            @if(isset($chatAll))
+            @php
+            $count=0;
+
+            foreach ($chatAll as $c) {
+            if ($c->unseen_messages_count > 0) {
+            $count++;
+            }
+            }
+
+            @endphp
+
             <a class="nav-link" data-toggle="dropdown" href="#">
                 <i class="far fa-comments"></i>
-                <span class="badge badge-danger navbar-badge">3</span>
+                @if($count>0)
+                <span class="badge badge-danger navbar-badge">{{$count}}</span>
+                @endif
             </a>
+            @endif
+
+
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                <a href="#" class="dropdown-item">
+                @if(isset($chatAll))
+
+                @foreach($chatAll as $chat)
+                @if($chat->unseen_messages_count>0)
+                <a href="/chattle/chat-admin" class="dropdown-item">
                     <!-- Message Start -->
-                    <div class="media">
-                        <img src="admins/dist/img/user1-128x128.jpg" alt="User Avatar"
-                            class="img-size-50 mr-3 img-circle">
+                    <div onclick="fetchData(this)" class="media chat-list-item" id="{{ $chat->id }}" data-sender-name="{{ $chat->name }}">
+                        @if($chat->owner!=null)
+                        <img src="{{$chat->owner->avatar}}" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                        @endif
+
+                        @if($chat->owner==null)
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Default-avatar.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                        @endif
                         <div class="media-body">
                             <h3 class="dropdown-item-title">
-                                Brad Diesel
-                                <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                            </h3>
-                            <p class="text-sm">Call me whenever you can...</p>
-                            <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                        </div>
-                    </div>
-                    <!-- Message End -->
-                </a>
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">
-                    <!-- Message Start -->
-                    <div class="media">
-                        <img src="admins/dist/img/user8-128x128.jpg" alt="User Avatar"
-                            class="img-size-50 img-circle mr-3">
-                        <div class="media-body">
-                            <h3 class="dropdown-item-title">
-                                John Pierce
+                                @if($chat->owner!=null)
+                                {{$chat->owner->name}}
+                                @endif
+
+                                @if($chat->owner==null)
+                                Gest
+                                @endif
                                 <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
+
+
+
+
                             </h3>
-                            <p class="text-sm">I got your message bro</p>
-                            <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+
+                            <!-- <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p> -->
                         </div>
                     </div>
                     <!-- Message End -->
                 </a>
                 <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">
-                    <!-- Message Start -->
-                    <div class="media">
-                        <img src="admins/dist/img/user3-128x128.jpg" alt="User Avatar"
-                            class="img-size-50 img-circle mr-3">
-                        <div class="media-body">
-                            <h3 class="dropdown-item-title">
-                                Nora Silvester
-                                <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-                            </h3>
-                            <p class="text-sm">The subject goes here</p>
-                            <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                        </div>
-                    </div>
-                    <!-- Message End -->
-                </a>
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+                @endif
+                @endforeach
+
+                @endif
+
+
+
+
+                <a href="/chattle/chat-admin" class="dropdown-item dropdown-footer">See All Messages</a>
             </div>
         </li>
         <!-- Notifications Dropdown Menu -->

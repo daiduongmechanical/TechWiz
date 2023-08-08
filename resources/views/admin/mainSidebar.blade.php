@@ -46,12 +46,7 @@
                     </a>
                     <ul class="nav nav-treeview">
 
-                        <li class="nav-item">
-                            <a href="{{ url('/chattle/chat-admin') }}" class="nav-link bg-light text-dark">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p> Chat Box </p>
-                            </a>
-                        </li>
+
 
                         <li class="nav-item">
                             <a href="{{ url('/admin/list-user') }}" class="nav-link bg-light text-dark">

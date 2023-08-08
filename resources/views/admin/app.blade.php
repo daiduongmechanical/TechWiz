@@ -70,15 +70,14 @@
     <script src="admins/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
     <script src="admins/dist/js/adminlte.min.js"></script>
-
     <script src="admins/dist/js/managetable.js"></script>
     <script src="admins/dist/js/handlemodalNotify.js"></script>
 
-{{-- chat box --}}
+    {{-- chat box --}}
     <script src="/js/pusher.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.2.min.js" integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA=" crossorigin="anonymous"></script>
     <script src="/js/chattle_admin.js"></script>
-{{-- end chat box --}}
+    {{-- end chat box --}}
 
 </body>
 

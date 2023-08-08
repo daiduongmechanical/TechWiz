@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Chat;
+
 use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
 use App\Models\Chat;
