@@ -41,6 +41,8 @@
 
         </main>
 
+    </div>
+    <div class="relative bottom-0">
 
         @include('layouts.footer')
     </div>
