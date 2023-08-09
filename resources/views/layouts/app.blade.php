@@ -14,35 +14,31 @@
 
 
     <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
+    <link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{{ asset('/css/chattle_style.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/footers/">
+
+
 </head>
-@include('chat.chat')
+
 
 <body class="font-sans antialiased">
     @include('chat.chat')
-    <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
-
-        <header>
-            @include('layouts.navigation')
-
-        </header>
-        <!-- Page Content -->
-        <main>
+    @include('layouts.navigation')
+    <div class="container" >
+        <section>
             @yield('content')
-
-        </main>
-
+        </section>
     </div>
-    <div class="relative bottom-0">
-
-        @include('layouts.footer')
-    </div>
+    @include('layouts.footer')
 
 
 
+
+    <script src="{{ asset('/js/bootstrap.bundle.min.js') }}"></script>
     <script src="js/jquery.min.js"></script>
     <script src="js/sweetalert.min.js"></script>
 
