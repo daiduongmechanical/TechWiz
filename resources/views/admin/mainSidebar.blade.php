@@ -47,6 +47,34 @@
                     <ul class="nav nav-treeview">
 
 
+                        <li class="nav-item">
+                            <a href="{{ url('/admin/list-user') }}" class="nav-link bg-light text-dark">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p> Users management </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ url('admin/index') }}" class="nav-link bg-light text-dark">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Admin management</p>
+
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- end user manage -->
+
+                <li class="nav-item menu-open">
+                    <a href="#" class="nav-link active">
+                        <i class=" nav-icon dfas fa-user"></i>
+                        <p>
+                            Product management
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+
 
                         <li class="nav-item">
                             <a href="{{ url('/admin/list-user') }}" class="nav-link bg-light text-dark">
@@ -63,6 +91,8 @@
                         </li>
                     </ul>
                 </li>
+
+
 
             </ul>
         </nav>
