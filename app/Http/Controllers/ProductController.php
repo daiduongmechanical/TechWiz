@@ -90,7 +90,7 @@ class ProductController extends Controller
                 if ($size < 2 * 1024 * 1024) {
                     //doi ten hinh de up len server
                     $fileName = date('Y-m-d') . '-' . $fileName;
-                    $file->move('fontend/Image/', $fileName);
+                    $file->move('productImage/', $fileName);
                 } else {
                     $error = 'image phai nho hon 2MB';
                     return back()->with('error', $error);
