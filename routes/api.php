@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -29,3 +30,5 @@ Route::prefix('comment')->group(function () {
 Route::prefix('chat')->group(function () {
     Route::get('/', [UserController::class, 'test']);
 });
+
+Route::get('/list', [ProductController::class, 'all_product']);

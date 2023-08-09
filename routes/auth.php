@@ -12,6 +12,7 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\ProductController;
 
 
 Route::middleware('guest')->group(function () {
@@ -80,5 +81,13 @@ Route::middleware('is_admin')->group(function () {
         Route::post('/postEdit', [UserController::class, 'postEdit'])->name('admin.postEdit');
         Route::get('/delete/{id}', [UserController::class, 'destroy'])->name('admin.delete');
         Route::get('/', [UserController::class, 'home'])->name('admin.home');
+    });
+});
+
+
+Route::middleware('is_admin')->group(function () {
+
+    Route::prefix('/admin/product')->group(function () {
+        Route::get('/index', [ProductController::class, 'all_product']);
     });
 });
