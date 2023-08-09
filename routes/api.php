@@ -19,6 +19,9 @@ use App\Http\Controllers\ProviderController;
 |
 */
 
+Route::post('/list', [ProductController::class, 'add_product']);
+
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
@@ -33,5 +36,3 @@ Route::prefix('comment')->group(function () {
 Route::prefix('chat')->group(function () {
     Route::get('/', [UserController::class, 'test']);
 });
-
-Route::get('/list', [ProductController::class, 'all_product']);

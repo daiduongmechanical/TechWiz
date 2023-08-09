@@ -21,8 +21,8 @@ class ProductController extends Controller
         $product = Product::find($id);
 
 
-        if ($request->hasFile('image')) { //kiem tra xem co chon hinh ko
-            $file = $request->file('image');
+        if ($request->hasFile('images')) { //kiem tra xem co chon hinh ko
+            $file = $request->file('images');
             $fileName = $file->getClientOriginalName();
             $ext = $file->getClientOriginalExtension();
             $accept_ext = ['png', 'jpeg', 'jpg', 'gif'];
@@ -40,11 +40,9 @@ class ProductController extends Controller
                 $error = 'image phai co duoi jpg,png,jpeg,gif';
                 return back()->with('error', $error);
             }
-        } else { //neu ko chon thi de mac dinh
-            $fileName =  $product->image;
         }
-        $product->image = $fileName;
-        $productImages = [];
+
+
         if ($request->hasFile('product_image')) {
             $image = Image::where('product_id', $id);
             $image->delete();
@@ -78,62 +76,50 @@ class ProductController extends Controller
     public function add_product(Request $request)
     {
 
-        if ($request->hasFile('images')) { //kiem tra xem co chon hinh ko
-            $file = $request->file('nutrition_fact');
-            $fileName = $file->getClientOriginalName();
-            $ext = $file->getClientOriginalExtension();
+
+        $file = $request->file('images');
+
+        foreach ($file as $files) {
+
+            $ext = $files->extension();
             $accept_ext = ['png', 'jpeg', 'jpg', 'gif'];
             if (in_array($ext, $accept_ext)) {
-                $size = $file->getSize();
-                if ($size < 2 * 1024 * 1024) {
-                    //doi ten hinh de up len server
-                    $fileName = date('Y-m-d') . '-' . $fileName;
-                    $file->move('fontend/Image/', $fileName);
-                } else {
+                $size = $files->getSize();
+                if ($size > 2 * 1024 * 1024) {
                     $error = 'image phai nho hon 2MB';
+
                     return back()->with('error', $error);
                 }
             } else {
                 $error = 'image phai co duoi jpg,png,jpeg,gif';
+
                 return back()->with('error', $error);
             }
-        } else {
-            $fileName = 'public/fontend/Image/almondnutri.jpg';
         }
+
+
 
         $product = new Product();
         $product->name = $request->name;
         $product->description =   $request->description;
         $product->price = $request->price;
         $product->type = $request->type;
-        $product->provider_id = $request->provider_id;
+        $product->provider_id = $request->providerId;
+        $product->save();
 
-        foreach ($file as $file) {
-            $ext = $file->extension();
-            $fileName = time() . rand(0, 10000) . '.' . $ext;
+
+
+        foreach ($file as $x) {
+
+            $fileName = time() . rand(0, 10000) . '.' . $x->extension();
+            $x->move(public_path('productImages'), $fileName);
             $image = new Image();
             $image->product_id = $product->product_id;
-
-            $image->path = $fileName;
+            $image->url = 'localhost:8000/productImages/' . $fileName;
             $image->save();
         }
 
-
-
-
-        $product->save();
-        $productImages = [];
-        if ($request->hasFile('product_image')) {
-            foreach ($request->file('product_image') as $image) {
-                if ($image->isValid()) {
-                    $imageName = time() . '_' . $image->getClientOriginalName();
-                    $image->move(public_path('fontend/Image'), $imageName);
-                    $productImages[] = $imageName;
-                }
-            }
-        }
-
-
+        return 'die';
         return redirect('/all-product')->with('message', 'Add Product Successful');
     }
 }
