@@ -4,9 +4,11 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CommentController;
-use App\Http\Controllers\ProductController;
+
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProviderController;
+use App\Http\Controllers\BlogController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +21,7 @@ use App\Http\Controllers\ProviderController;
 |
 */
 
-Route::post('/list', [ProductController::class, 'add_product']);
+Route::post('/add', [BlogController::class, 'addBlog']);
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
