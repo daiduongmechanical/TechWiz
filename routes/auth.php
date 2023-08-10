@@ -13,7 +13,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\Auth\ProviderController;
+
+use App\Http\Controllers\ProviderController;
+
 
 Route::middleware('guest')->group(function () {
     Route::get('register', [RegisteredUserController::class, 'create'])
@@ -95,10 +97,18 @@ Route::middleware('is_admin')->group(function () {
 
 
 
-Route::middleware('is_admin')->group(function () {
 
-    Route::prefix('/admin/provider')->group(function () {
-        Route::post('/add', [ProviderController::class, 'addProvider']);
-        Route::post('/update/{id}', [ProviderController::class, 'updateProvider']);
+
+    Route::prefix('provider')->group(function () {
+        Route::get('/index', [ProviderController::class, 'index']);
+        Route::get('/create', [ProviderController::class, 'create']);
+        Route::post('/add', [ProviderController::class, 'add'])->name('provider/add');
+        Route::post('/update/{id}', [ProviderController::class, 'update']);
+        Route::get('/edit/{id}', [ProviderController::class, 'edit']);
+   
+        
+        
     });
-});
+
+
+
