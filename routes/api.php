@@ -4,9 +4,11 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CommentController;
-use App\Http\Controllers\ProductController;
+
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProviderController;
+use App\Http\Controllers\BlogController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +20,9 @@ use App\Http\Controllers\ProviderController;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
+
+Route::post('/add', [BlogController::class, 'addBlog']);
+
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
@@ -33,5 +38,3 @@ Route::prefix('comment')->group(function () {
 Route::prefix('chat')->group(function () {
     Route::get('/', [UserController::class, 'test']);
 });
-
-Route::get('/list', [ProductController::class, 'all_product']);
