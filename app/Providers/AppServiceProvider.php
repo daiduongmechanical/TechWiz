@@ -23,7 +23,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
 
-<<<<<<< HEAD
+
         // $chatAll = Chat::withCount('unseen_messages')->orderBy('unseen_messages_count', 'desc')->get();
 
         // foreach ($chatAll as $chat) {
@@ -38,7 +38,7 @@ class AppServiceProvider extends ServiceProvider
 
         // View::share('chatAll', $chatAll);
     }
-=======
+
     //     $chatAll = Chat::withCount('unseen_messages')->orderBy('unseen_messages_count', 'desc')->get();
     //     foreach ($chatAll as $chat) {
     //         $check = User::where('email', $chat->email)->first();
@@ -53,5 +53,5 @@ class AppServiceProvider extends ServiceProvider
     //     View::share('chatAll', $chatAll);
     // 
 }
->>>>>>> origin/hien1
-}
+
+
