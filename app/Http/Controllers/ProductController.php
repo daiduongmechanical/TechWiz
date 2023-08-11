@@ -6,6 +6,7 @@ use App\Models\Image;
 use App\Models\product;
 use Illuminate\Http\Request;
 use App\Models\Provider;
+use App\Models\Category;
 
 class ProductController extends Controller
 {
@@ -21,8 +22,9 @@ class ProductController extends Controller
     {
         $product = product::with('images')->with('provider')->get();
         $provider = Provider::all();
+        $category = Category::all();
 
-        return view('client.category')->with('products', $product)->with('providers', $provider);
+        return view('client.category')->with('products', $product)->with('providers', $provider)->with('categories', $category);
     }
 
     public function update_product(Request $request, $id)
