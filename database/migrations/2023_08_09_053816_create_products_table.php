@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('description');
             $table->float('price');
-            $table->string('category_id');
+            $table->unsignedInteger('category_id');
             $table->unsignedInteger('provider_id');
             $table->timestamps();
             $table->foreign('provider_id')->references('provider_id')->on('providers');
