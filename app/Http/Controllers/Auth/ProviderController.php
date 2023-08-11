@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 
@@ -20,9 +21,11 @@ class ProviderController extends Controller
         try {
 
             $SocialUser = Socialite::driver($provider)->user();
-if(User::where('email',$SocialUser->getEmail())->exists()){
-    return redirect('/login')->withErrors(['email'=>'This email use different method to login']);
-}
+            // if(User::where('email',$SocialUser->getEmail())->exists()){
+            //     return redirect('/login')->withErrors(['email'=>'This email use different method to login']);
+            // }
+            $array = ['bear', 'dog', 'rabbit'];
+            $randomElement = Arr::random($array);
             $user = User::where(['provider' => $provider, 'provider_id' => $SocialUser->id])->first();
             if (!$user) {
                 $user = User::create([
@@ -31,7 +34,8 @@ if(User::where('email',$SocialUser->getEmail())->exists()){
                     'provider' => $provider,
                     'provider_id' => $SocialUser->getId(),
                     'provider_token' => $SocialUser->token,
-                    'email_verified_at' => now()
+                    'email_verified_at' => now(),
+                    'avatar' => $randomElement
 
 
                 ]);

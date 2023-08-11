@@ -12,6 +12,10 @@ class VerifyCsrfToken extends Middleware
      * @var array<int, string>
      */
     protected $except = [
-        //
+        '/test/checkout/confirm_order_cart_empty',
+        '/test/checkout/confirm_order_allProduct',
+        '/test/checkout/confirm',
+        '/test/checkout/confirm_lostconnect',
+        'test/postedit-cate-product'
     ];
 }

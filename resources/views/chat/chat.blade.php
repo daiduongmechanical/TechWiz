@@ -65,8 +65,3 @@
     </div>
     {{-- CHAT HTML SNIPPET END --}}
 </div>
-
-<script src="/js/pusher.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.2.min.js" integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA=" crossorigin="anonymous"></script>
-<script src="/js/jquery-cookie.js"></script>
-<script src="/js/chattle_customer.js"></script>

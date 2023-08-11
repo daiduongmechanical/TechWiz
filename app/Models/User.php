@@ -29,6 +29,12 @@ class User extends Authenticatable
         'is_admin',
         'phone',
         'dob',
+        'avatar',
+        
+        'shipping_dictrictId',
+        'shipping_wardId',
+        'shipping_address_street',
+        'address',
 
     ];
 
