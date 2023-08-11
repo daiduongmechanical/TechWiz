@@ -1,101 +1,3 @@
-<<<<<<< HEAD
-<div class="bg-light shadow-sm" id="navbar_top">
-
-    <div class="container ">
-
-        <nav class="navbar navbar-expand-lg " aria-label="Seventh navbar example">
-            <div class="container-fluid">
-
-                <div class="shrink-0 flex items-center "style="padding-right:2rem">
-                    <a href="{{ route('dashboard') }}" class="nav-link">
-                        <div>
-
-                            <x-application-logo />
-                        </div>
-                    </a>
-                </div>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarsExampleXxl" aria-controls="navbarsExampleXxl" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarsExampleXxl">
-                    <ul class="navbar-nav me-auto mb-2 mb-xl-0" role="tablist">
-                        <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                            {{ __('Dashboard') }}
-                        </x-nav-link>
-                        <x-nav-link :href="route('dashboard2')" :active="request()->routeIs('dashboard2')">
-                            {{ __('Dashboard2') }}
-                        </x-nav-link>
-                        {{-- <li class="nav-item">
-                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="dropdownXxl"
-                                data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownXxl">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li> --}}
-                    </ul>
-                    <form>
-                        <input class="form-control" type="text" placeholder="Search" aria-label="Search">
-                    </form>
-                    @if (Auth::user() == null)
-                        <a href="{{ route('login') }}" class="nav-link link-body-emphasis px-2">Login</a>
-                    @else
-                        <div class="dropdown p-2">
-                            <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle"
-                                id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32"
-                                    class="rounded-circle">
-                            </a>
-                            <ul class="dropdown-menu text-small dropdown-menu-end" aria-labelledby="dropdownUser1"
-                                style="right: 0">
-                                @if (Auth::user()->is_admin == 1)
-                                    <li><a class="dropdown-item"href="{{route('admin.home')}}">Manager</a></li>
-                                @endif
-
-
-                                <li><a class="dropdown-item" href="{{route('profile.edit')}}">Profile</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><form method="POST" action="{{ route('logout') }}">
-                                    @csrf
-
-                                    <x-dropdown-link :href="route('logout')"
-                                        onclick="event.preventDefault();
-                                                    this.closest('form').submit();">
-                                        {{ __('Log Out') }}
-                                    </x-dropdown-link>
-                                </form></li>
-                            </ul>
-                        </div>
-                    @endif
-                </div>
-            </div>
-        </nav>
-    </div>
-</div>
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 50) {
-                document.getElementById('navbar_top').classList.add('fixed-top');
-                // add padding top to show content behind navbar
-                navbar_height = document.querySelector('.navbar').offsetHeight;
-                document.body.style.paddingTop = navbar_height + 'px';
-            } else {
-                document.getElementById('navbar_top').classList.remove('fixed-top');
-                // remove padding top from body
-                document.body.style.paddingTop = '0';
-            }
-        });
-=======
 <div class="bg-light shadow-sm d-flex align-items-center justify-content-between fixed-top" id="navbar_top"
     style="height: 80px;padding:0 2rem ">
 
@@ -167,20 +69,19 @@
                 </ul>
             </nav>
             <div class="header-right">
-                {{-- add to cart --}}
                 <button type="button" class="cart-btn icon-btn">
-                          <a href="/cart">  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                            style="width: 2.5rem;height: 2.5rem;">
-                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                            <g id="SVGRepo_iconCarrier">
-                                <path
-                                    d="M16 8H17.1597C18.1999 8 19.0664 8.79732 19.1528 9.83391L19.8195 17.8339C19.9167 18.9999 18.9965 20 17.8264 20H6.1736C5.00352 20 4.08334 18.9999 4.18051 17.8339L4.84718 9.83391C4.93356 8.79732 5.80009 8 6.84027 8H8M16 8H8M16 8L16 7C16 5.93913 15.5786 4.92172 14.8284 4.17157C14.0783 3.42143 13.0609 3 12 3C10.9391 3 9.92172 3.42143 9.17157 4.17157C8.42143 4.92172 8 5.93913 8 7L8 8M16 8L16 12M8 8L8 12"
-                                    stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                </path>
-                            </g>
-                        </svg></a>
-                  
+
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        style="width: 2.5rem;height: 2.5rem;">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                            <path
+                                d="M16 8H17.1597C18.1999 8 19.0664 8.79732 19.1528 9.83391L19.8195 17.8339C19.9167 18.9999 18.9965 20 17.8264 20H6.1736C5.00352 20 4.08334 18.9999 4.18051 17.8339L4.84718 9.83391C4.93356 8.79732 5.80009 8 6.84027 8H8M16 8H8M16 8L16 7C16 5.93913 15.5786 4.92172 14.8284 4.17157C14.0783 3.42143 13.0609 3 12 3C10.9391 3 9.92172 3.42143 9.17157 4.17157C8.42143 4.92172 8 5.93913 8 7L8 8M16 8L16 12M8 8L8 12"
+                                stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            </path>
+                        </g>
+                    </svg>
                 </button>
                 <button type="button" class="search-btn icon-btn">
                     @if (Auth::user() == null)
@@ -291,6 +192,5 @@
                 this.closest(".dropdown").classList.toggle('active')
             })
         })
->>>>>>> origin/hien1
     });
 </script>

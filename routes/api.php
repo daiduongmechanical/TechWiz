@@ -6,14 +6,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CommentController;
 
 use App\Http\Controllers\UserController;
-<<<<<<< HEAD
+
 use App\Http\Controllers\ProviderController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ProductController;
-
-=======
 use App\Http\Controllers\OrderController;
->>>>>>> origin/hien1
+
 
 /*
 |--------------------------------------------------------------------------
