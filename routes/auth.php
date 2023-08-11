@@ -15,7 +15,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\BlogController;
-
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProviderController;
 
 Route::middleware('guest')->group(function () {
@@ -116,6 +116,17 @@ Route::middleware('is_admin')->group(function () {
         Route::get('/index', [BlogController::class, 'index'])->name('blog.index');
         Route::get('/delete/{id}', [BlogController::class, 'delete'])->name('blog.delete');
 
+        
+        
+    });
+
+    Route::prefix('category')->group(function () {
+        Route::get('/index', [CategoryController::class, 'index']);
+        Route::get('/create', [CategoryController::class, 'create']);
+        Route::post('/add', [CategoryController::class, 'add'])->name('category/add');
+        Route::post('/update/{id}', [CategoryController::class, 'update']);
+        Route::get('/edit/{id}', [CategoryController::class, 'edit']);
+   
         
         
     });

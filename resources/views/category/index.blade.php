@@ -40,14 +40,14 @@
     {{session()->forget('success')}}
     @endif
                 <div class="card-header">
-                    <h3 class="card-title">List Blog</h3>
+                    <h3 class="card-title">List Category</h3>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
                     <table id="discount__table" class="table table-bordered table-hover">
                         <thead class="thead-dark ">
                         <tr>
-                            <th>Category Id</th>
+                            <th>Category ID</th>
                             <th>Name</th>
                         
 
@@ -63,7 +63,7 @@
 
                                 <td class="text-right">
  
-                                    <button type="button" class="btn btn-danger btn-sm text-dark mr-1 btn-delete-blog" style="font-size: 18px; font-weight:600" data="{{$b->blog_id}}" data-toggle="modal" data-target="#exampleModal">
+                                    <button type="button" class="btn btn-danger btn-sm text-dark mr-1 btn-delete-blog" style="font-size: 18px; font-weight:600" data="{{$c->category_id}}" data-toggle="modal" data-target="#exampleModal">
                                         Delete
                                     </button>
                                 </td>
