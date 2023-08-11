@@ -50,10 +50,13 @@
     <script src="/js/jquery-cookie.js"></script>
     <script src="/js/chattle_customer.js"></script>
     <script src="/js/handleLogout.js"></script>
-    <script src="/js/handleMenu.js"></script>
-    <script src="/js/handleSort.js"></script>
+    <<<<<<< HEAD <script src="/js/handleMenu.js">
+        </script>
+        <script src="/js/handleSort.js"></script>
+        =======
+        >>>>>>> 6579f4606ba1cf169866a146492565abb09dbe06
 
-    {{-- end chat box --}}
+        {{-- end chat box --}}
 </body>
 
 </html>
