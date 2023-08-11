@@ -12,11 +12,11 @@ use App\Http\Controllers\Chat\CreateController;
 use App\Http\Controllers\Chat\GetChatsController;
 use App\Http\Controllers\Chat\GetMessagesController;
 use App\Http\Controllers\Chat\PostMessageController;
-<<<<<<< HEAD
-use App\Http\Controllers\ProductController;
-=======
 
->>>>>>> origin/hien1
+
+
+
+
 // end chat box
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\OrderController;
@@ -112,7 +112,7 @@ Route::post('/update-qty', [AdminController::class, 'update_qty']);
 Route::get('/delete-order/{order_code}', [OrderController::class, 'order_code']);
 Route::post('/update-order-qty', [OrderController::class, 'update_order_qty']);
 
- 
+
 //Delivery
 Route::get('/delivery', [AdminController::class, 'delivery']);
 Route::post('/select-delivery', [AdminController::class, 'select_delivery']);
@@ -139,12 +139,12 @@ Route::get('/orders/{order_id}', [OrderController::class, 'cancel_order'])->name
 Route::get('/vieworder/{order_id}', [OrderController::class, 'view_order'])->name('order.view');
 Route::get('/print-order/{order_id}', [OrderController::class, 'print_order'])->name('order.print');
 
-Route::get('sendMail',[CheckoutController::class, 'sendMail']);
+Route::get('sendMail', [CheckoutController::class, 'sendMail']);
 
 Route::get('/check-order-status', [OrderController::class, 'checkOrderStatus'])->name('checkOrderStatus');
 Route::get('/admincheck-order-status', [OrderController::class, 'admincheckOrderStatus'])->name('admincheckOrderStatus');
 // voucher
-Route::get('/check-voucher', [VoucherController::class,'checkVoucher'])->name('check.voucher');
+Route::get('/check-voucher', [VoucherController::class, 'checkVoucher'])->name('check.voucher');
 // Route::resource('voucher',VoucherController::class);
 
 
@@ -161,11 +161,11 @@ Route::post('/pdashboard-filler', [StaticticalController::class, 'pdashboardfill
 Route::post('/pday-order', [StaticticalController::class, 'pday_order']);
 
 
-  // review
+// review
 Route::get('/list-review', [ReviewController::class, 'listReview'])->name('listReview');
 
-Route::get('/review/{product_id}', [CheckoutController::class,'review'])->name('review');
-Route::post('/submit-review', [CheckoutController::class,'savereview'])->name('submit-review');
+Route::get('/review/{product_id}', [CheckoutController::class, 'review'])->name('review');
+Route::post('/submit-review', [CheckoutController::class, 'savereview'])->name('submit-review');
 Route::post('/admin/reply-comment/{reviewId}', [ReviewController::class, 'replyComment'])->name('admin.replyComment');
 Route::delete('/admin/deleteComment/{id}', [ReviewController::class, 'deleteComment'])->name('admin.deleteComment');
 Route::get('/dashboard', [AdminController::class, 'dasboard']);
@@ -174,7 +174,3 @@ Route::get('/dashboard', [AdminController::class, 'dasboard']);
 Route::get('/product/{id}', [HomeController::class, 'productDetail'])->name('product.detail');
 
 Route::get('/home', [HomeController::class, 'home']);
-
-
-
-
