@@ -19,7 +19,9 @@ class Image extends Model
 
     ];
 
-    public function provider(): BelongsTo
+    protected $primaryKey = 'image_id';
+
+    public function product(): BelongsTo
     {
         return $this->belongsTo(product::class, 'product_id');
     }

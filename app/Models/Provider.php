@@ -18,6 +18,7 @@ class Provider extends Model
 
     ];
 
+
     protected $primaryKey = 'provider_id';
 
     public function products(): HasMany
