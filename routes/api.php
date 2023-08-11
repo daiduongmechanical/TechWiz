@@ -8,6 +8,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProviderController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ProductController;
 
 
 /*
@@ -24,10 +25,12 @@ use App\Http\Controllers\BlogController;
 Route::post('/add', [BlogController::class, 'addBlog']);
 
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
 
+Route::prefix('/product')->group(function () {
+
+    Route::post('/sort-product', [ProductController::class, 'sort_product_user']);
+    Route::get('/', [ProductController::class, 'all_product_user']);
+});
 Route::post('admin/provider/update/{id}', [ProviderController::class, 'updateProvider']);
 
 

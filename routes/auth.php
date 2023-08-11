@@ -97,39 +97,32 @@ Route::middleware('is_admin')->group(function () {
 
 
 
+Route::prefix('/product')->group(function () {
+    Route::get('/', [ProductController::class, 'all_product_user']);
+    Route::get('/sort-product', [ProductController::class, 'sort_product_user']);
+});
 
 
 
-    Route::prefix('provider')->group(function () {
-        Route::get('/index', [ProviderController::class, 'index']);
-        Route::get('/create', [ProviderController::class, 'create']);
-        Route::post('/add', [ProviderController::class, 'add'])->name('provider/add');
-        Route::post('/update/{id}', [ProviderController::class, 'update']);
-        Route::get('/edit/{id}', [ProviderController::class, 'edit']);
-   
-        
-        
-    });
 
-    
-    Route::prefix('blog')->group(function () {
-        Route::get('/index', [BlogController::class, 'index'])->name('blog.index');
-        Route::get('/delete/{id}', [BlogController::class, 'delete'])->name('blog.delete');
+Route::prefix('provider')->group(function () {
+    Route::get('/index', [ProviderController::class, 'index']);
+    Route::get('/create', [ProviderController::class, 'create']);
+    Route::post('/add', [ProviderController::class, 'add'])->name('provider/add');
+    Route::post('/update/{id}', [ProviderController::class, 'update']);
+    Route::get('/edit/{id}', [ProviderController::class, 'edit']);
+});
 
-        
-        
-    });
 
-    Route::prefix('category')->group(function () {
-        Route::get('/index', [CategoryController::class, 'index']);
-        Route::get('/create', [CategoryController::class, 'create']);
-        Route::post('/add', [CategoryController::class, 'add'])->name('category/add');
-        Route::post('/update/{id}', [CategoryController::class, 'update']);
-        Route::get('/edit/{id}', [CategoryController::class, 'edit']);
-   
-        
-        
-    });
+Route::prefix('blog')->group(function () {
+    Route::get('/index', [BlogController::class, 'index'])->name('blog.index');
+    Route::get('/delete/{id}', [BlogController::class, 'delete'])->name('blog.delete');
+});
 
-  
-  
+Route::prefix('category')->group(function () {
+    Route::get('/index', [CategoryController::class, 'index']);
+    Route::get('/create', [CategoryController::class, 'create']);
+    Route::post('/add', [CategoryController::class, 'add'])->name('category/add');
+    Route::post('/update/{id}', [CategoryController::class, 'update']);
+    Route::get('/edit/{id}', [CategoryController::class, 'edit']);
+});

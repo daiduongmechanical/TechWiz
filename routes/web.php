@@ -47,19 +47,16 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::middleware('guest')->group(function () {
 
-    Route::prefix('/product')->group(function () {
-        Route::get('/', [ProductController::class, 'all_product_user']);
-    });
-});
+
+
 
 require __DIR__ . '/auth.php';
 
 
 
 //realtime chat box
-    Route::prefix('chattle')->group(function () {
+Route::prefix('chattle')->group(function () {
     Route::view('chat', 'chat.chat');
     Route::post('create-chat', CreateController::class);
     Route::post('post-message', PostMessageController::class);
@@ -68,4 +65,3 @@ require __DIR__ . '/auth.php';
     Route::get('get-chats', GetChatsController::class);
 });
 // end chat box
-

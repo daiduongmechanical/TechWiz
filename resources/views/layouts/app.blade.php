@@ -51,6 +51,7 @@
     <script src="/js/chattle_customer.js"></script>
     <script src="/js/handleLogout.js"></script>
     <script src="/js/handleMenu.js"></script>
+    <script src="/js/handleSort.js"></script>
 
     {{-- end chat box --}}
 </body>

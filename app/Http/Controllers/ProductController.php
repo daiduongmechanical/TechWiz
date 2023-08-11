@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Provider;
 use App\Models\Category;
 
+
 class ProductController extends Controller
 {
     public function all_product()
@@ -20,11 +21,29 @@ class ProductController extends Controller
 
     public function all_product_user()
     {
+
         $product = product::with('images')->with('provider')->get();
         $provider = Provider::all();
         $category = Category::all();
 
         return view('client.category')->with('products', $product)->with('providers', $provider)->with('categories', $category);
+    }
+
+    public function sort_product_user(Request $request)
+    {
+        return 'hello';
+        $data = product::query();
+        if (isset($request->provider)) {
+            $data->where('provider_id', $request->provider);
+        }
+        if (isset($request->price)) {
+            $data->where('price', '>', $request->price)->where('price', '<', (int)($request->price) + 5);
+        }
+        if (isset($request->type)) {
+            $data->where('type', $request->type);
+        }
+
+        return $data->get();
     }
 
     public function update_product(Request $request, $id)

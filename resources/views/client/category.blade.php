@@ -46,19 +46,22 @@
 <section class="product-list">
     <div class="mt-4">
         <div class="row">
-            <div class="col-sm-2 " style=" border-right: solid 0.5px rgba(108, 122, 137,0.5); ">
+            <div class="col-sm-3 " style=" border-right: solid 0.5px rgba(108, 122, 137,0.5); ">
+
 
                 <div class=" dropdown mb-2" style="width: 100%; height:40px">
                     <div class="dropbtn btn-show-provider " style="width: 100%; height:100%">
                         <span>Provider</span>
-
                         <i class="fas fa-angle-down i-s-1"></i>
                         <i class="fas fa-angle-up i-s-2" style="display: none;"></i>
                     </div>
                     <div class="dropdown-content dropdown-content--provider " style="width: 100%;">
                         @if(isset($providers))
                         @foreach($providers as $provider)
-                        <div class=" d-flex  align-items-center "><input name=" provider" value="{{$provider->provider_id}}" type="checkbox"><span style="margin-left: 10px;"> {{$provider->name}}</span></div>
+                        <div class="  d-flex  align-items-center ">
+                            <input class="btn--to__submit" name="provider" value="{{$provider->provider_id}}" type="checkbox" />
+                            <span style="margin-left: 10px;"> {{$provider->name}}</span>
+                        </div>
                         @endforeach
                         @endif
                     </div>
@@ -73,10 +76,10 @@
                         <i class="fas fa-angle-up i-s-2--price" style="display: none;"></i>
                     </div>
                     <div class="dropdown-content dropdown-content--price " style="width: 100%;">
-                        <p><input name="brand" value="5" type="checkbox">1 -> 5 $</p>
-                        <p><input name="brand" value="10" type="checkbox">5 -> 10 $</p>
-                        <p><input name="brand" value="15" type="checkbox">10 -> 15 $</p>
-                        <p><input name="brand" value="20" type="checkbox">15 -> 20 $</p>
+                        <p><input class="btn--to__submit" name="price" value="5" type="radio">1 -> 5 $</p>
+                        <p><input class="btn--to__submit" name="price" value="10" type="radio">5 -> 10 $</p>
+                        <p><input class="btn--to__submit" name="price" value="15" type="radio">10 -> 15 $</p>
+                        <p><input class="btn--to__submit" name="price" value="20" type="radio">15 -> 20 $</p>
                     </div>
                 </div>
 
@@ -88,17 +91,22 @@
                         <i class="fas fa-angle-up i-s-2--type" style="display: none;"></i>
                     </div>
                     <div class="dropdown-content dropdown-content--type " style="width: 100%;">
-                        <p><input name="brand" value="option 1" type="checkbox">option 1</p>
-                        <p><input name="brand" value="option 2" type="checkbox">option 2</p>
-                        <p><input name="brand" value="option 3" type="checkbox">option 3</p>
+                        @if(isset($categories))
+                        @foreach($categories as $c)
+                        <p><input class="btn--to__submit" name="category" value="{{$c->category_id}}" type="checkbox">{{$c->name}}</p>
+
+                        @endforeach
+                        @endif
+
                     </div>
                 </div>
+
 
             </div>
 
 
 
-            <div class="col-sm-10 rounded-sm">
+            <div class="col-sm-9 rounded-sm">
                 <div class="row">
 
                     <div id="message"></div>
@@ -191,96 +199,7 @@
 </section>
 
 
-<script>
-    $(document).ready(function() {
-        //DryFuits - weight
-        var thongbao = document.getElementById("message");
-        $('#sort-by').on('change', function() {
-            var sortBy = $(this).val();
-            var filterByPrice = $('input[name="filter-price"]:checked').val();
-            var filterByWeight = $('input[name="filter-weight"]:checked').val();
-            var brandId = $('input[name="brand"]:checked').val(); // Get the selected brand ID
 
-            applySortingAndFiltering(sortBy, filterByPrice, filterByWeight, brandId);
-        });
-
-        $('#filter-form-price input[name="filter-price"]').on('change', function() {
-            var filterByPrice = $(this).val();
-            var sortBy = $('#sort-by').val();
-            var filterByWeight = $('input[name="filter-weight"]:checked').val();
-            var brandId = $('input[name="brand"]:checked').val(); // Get the selected brand ID
-
-            applySortingAndFiltering(sortBy, filterByPrice, filterByWeight, brandId);
-        });
-
-        $('#filter-form-weight input[name="filter-weight"]').on('change', function() {
-            var filterByWeight = $(this).val();
-            var sortBy = $('#sort-by').val();
-            var filterByPrice = $('input[name="filter-price"]:checked').val();
-            var brandId = $('input[name="brand"]:checked').val(); // Get the selected brand ID
-
-            applySortingAndFiltering(sortBy, filterByPrice, filterByWeight, brandId);
-        });
-
-        $('input[name="brand"]').on('change', function() {
-            var brandId = $(this).val();
-            var sortBy = $('#sort-by').val();
-            var filterByPrice = $('input[name="filter-price"]:checked').val();
-            var filterByWeight = $('input[name="filter-weight"]:checked').val();
-
-            applySortingAndFiltering(sortBy, filterByPrice, filterByWeight, brandId);
-        });
-
-        function applySortingAndFiltering(sortBy, filterByPrice, filterByWeight, brandId) {
-            $.ajax({
-                url: "",
-                type: 'GET',
-                data: {
-                    sort_by: sortBy,
-
-                    filter_by_price: filterByPrice,
-                    filter_by_weight: filterByWeight,
-                    brand_id: brandId // Pass the selected brand ID to the controller
-                },
-                success: function(response) {
-                    thongbao.style.color = "blue";
-                    $('#product-list').html(response);
-                    $('#message').html('Sort and filter products successfully!').fadeIn();
-                    setTimeout(function() {
-                        $('#message').fadeOut();
-                    }, 1500);
-                },
-            });
-        }
-    });
-
-
-
-
-
-    $('#searchForm').submit(function(e) {
-        e.preventDefault();
-        var searchTerm = $('#searchTerm').val();
-        // Gửi yêu cầu tìm kiếm sản phẩm bằng Ajax
-        $.ajax({
-            url: "",
-            method: 'GET',
-            data: {
-                term: searchTerm
-            },
-            success: function(response) {
-                $('#product-list').html(response);
-                thongbao.style.color = "blue";
-                $('#product-list').html(response);
-                $('#message').html('Search products successfully!').fadeIn();
-                setTimeout(function() {
-                    $('#message').fadeOut();
-                }, 1500)
-            },
-        });
-        $('#searchTerm').val('');
-    });
-</script>
 
 
 {{-- sort by  --}}
