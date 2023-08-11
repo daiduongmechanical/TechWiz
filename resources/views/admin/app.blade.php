@@ -16,9 +16,9 @@
     .custom-file-label::after {
         border-color: #8B4513; /* Brown color for file input label border */
     }
-        
 
-        
+
+
         </style>
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -31,6 +31,7 @@
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 
     <link rel="stylesheet" href="{{ asset('css/chattle_admin.min.css') }}">
+
 
 </head>
 
@@ -83,6 +84,7 @@
     <script src="admins/dist/js/adminlte.min.js"></script>
     <script src="admins/dist/js/managetable.js"></script>
     <script src="admins/dist/js/handlemodalNotify.js"></script>
+    <script src="admins/dist/js/updateProduct.js"></script>
 
     {{-- chat box --}}
     <script src="/js/pusher.min.js"></script>

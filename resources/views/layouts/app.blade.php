@@ -50,7 +50,6 @@
     <script src="/js/jquery-cookie.js"></script>
     <script src="/js/chattle_customer.js"></script>
     <script src="/js/handleLogout.js"></script>
-    <script src="/js/handleMenu.js"></script>
 
     {{-- end chat box --}}
 </body>

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\ProviderController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -68,4 +69,3 @@ require __DIR__ . '/auth.php';
     Route::get('get-chats', GetChatsController::class);
 });
 // end chat box
-

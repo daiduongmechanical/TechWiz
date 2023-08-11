@@ -77,51 +77,22 @@
 
 
                         <li class="nav-item">
-                            <a href="{{ url('/admin/product/index') }}" class="nav-link bg-light text-dark">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p> Product management </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ url('admin/add_prodcut/index') }}" class="nav-link bg-light text-dark">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Add Product</p>
-
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <!-- Provider  -->
-
-
-                <li class="nav-item menu-open">
-                    <a href="#" class="nav-link active">
-                        <i class=" nav-icon dfas fa-user"></i>
-                        <p>
-                            Provider management
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-
-
-                        <li class="nav-item">
-                            <a href="{{ url('provider/index') }}" class="nav-link bg-light text-dark">
+                            <a href="{{ url('/admin/list-user') }}" class="nav-link bg-light text-dark">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>List Provider</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('provider/create') }}" class="nav-link bg-light text-dark">
+                            <a href="{{ url('admin/index') }}" class="nav-link bg-light text-dark">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Add Provider</p>
+                                <p>Admin management</p>
 
                             </a>
                         </li>
                     </ul>
                 </li>
 
-                
+
 
                 <li class="nav-item menu-open">
                     <a href="#" class="nav-link active">
@@ -139,7 +110,7 @@
                                 <p>Category List</p>
                             </a>
                         </li>
-                  
+
                         <li class="nav-item">
                             <a href="{{ url('category/create') }}" class="nav-link bg-light text-dark">
                                 <i class="far fa-circle nav-icon"></i>
@@ -168,11 +139,11 @@
                                 <p>Blog List</p>
                             </a>
                         </li>
-                       
+
                     </ul>
                 </li>
 
-                
+
 
 
             </ul>

@@ -5,6 +5,12 @@
 
 <div class="card-body  p-2">
 
+    @if (session('message'))
+         <div class="alert alert-success">
+            {{session('message')}}
+         </div>
+    @endif
+
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -53,7 +59,8 @@
                 @foreach($product as $p)
                 <tr>
                     <td>{{ $p->product_id }}</td>
-                    <td> <img style="width:50px; height:50px" src="{{$p->images[0]->url}}" alt="error"> </td>
+                    <td>{{ $p->images}}</td>
+                    {{-- <td><img style="width:50px; height:50px" src="{{ $p->images[0]->url}}" alt="error"></td> --}}
                     <td>{{ $p->name}}</td>
                     <td>{{ $p->price}}</td>
                     <td>{{ $p->type}}</td>
@@ -61,7 +68,7 @@
 
                     <td class="text-right">
 
-                        <a class="btn btn-info btn-sm" style="font-size: 18px; font-weight:600" href="{{ url('admin/edit/'.$p->product_id) }}">
+                        <a class="btn btn-info btn-sm" style="font-size: 18px; font-weight:600" href="{{ url('admin/product/edit/'.$p->product_id) }}">
                             <i class="fas fa-pencil-alt"></i> Edit
                         </a>
                         <button type="button" class="btn btn-danger btn-sm text-dark mr-1 btn-delete-admin" style="font-size: 18px; font-weight:600" data="{{$p->product_id}}" data-toggle="modal" data-target="#exampleModal">
