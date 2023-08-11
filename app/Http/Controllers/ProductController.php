@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Image;
 use App\Models\product;
-use App\Models\Provider;
+
 use Illuminate\Http\Request;
 use App\Models\Provider;
 use App\Models\Category;
@@ -28,32 +28,7 @@ class ProductController extends Controller
         return view('client.category')->with('products', $product)->with('providers', $provider)->with('categories', $category);
     }
 
-<<<<<<< HEAD
-    public function sort_product_user(Request $request)
-    {
-        return 'hello';
-        $data = product::query();
-        if (isset($request->provider)) {
-            $data->where('provider_id', $request->provider);
-        }
-        if (isset($request->price)) {
-            $data->where('price', '>', $request->price)->where('price', '<', (int)($request->price) + 5);
-        }
-        if (isset($request->type)) {
-            $data->where('type', $request->type);
-        }
-
-        return $data->get();
-    }
-
     public function update_product(Request $request, $id)
-=======
-
-// Create product
-
-
-    public function create()
->>>>>>> 6579f4606ba1cf169866a146492565abb09dbe06
     {
         $product = Product::find($id);
 
@@ -113,15 +88,13 @@ class ProductController extends Controller
     }
     public function add_product(Request $request)
     {
+
+
         $file = $request->file('images');
+
         foreach ($file as $files) {
 
-
-
-        if ($request->hasFile('images')) { //kiem tra xem co chon hinh ko
-            $file = $request->file('nutrition_fact');
-            $fileName = $file->getClientOriginalName();
-            $ext = $file->getClientOriginalExtension();
+            $ext = $files->extension();
             $accept_ext = ['png', 'jpeg', 'jpg', 'gif'];
             if (in_array($ext, $accept_ext)) {
                 $size = $files->getSize();

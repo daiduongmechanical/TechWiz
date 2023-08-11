@@ -54,9 +54,7 @@
         </script>
         <script src="/js/handleSort.js"></script>
         =======
-        >>>>>>> 6579f4606ba1cf169866a146492565abb09dbe06
 
-        {{-- end chat box --}}
 </body>
 
 </html>
