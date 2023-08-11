@@ -44,7 +44,7 @@ class CartController extends Controller
         $product = Product::find($productId);
         $quantity = $request->input('quantity', 1);
         $cart = Cart::fromSession();
-        $cart->addProduct($productId, $quantity, $product->prices->price);
+        $cart->addProduct($productId, $quantity, $product->price);
         $cart->save();
         $message = "Product added to cart successfully.";
 
