@@ -27,6 +27,14 @@ return new class extends Migration
             $table->boolean("block")->default(false);
             $table->rememberToken();
             $table->timestamps();
+
+            $table->string('address')->nullable();
+            $table->date('birthday')->nullable();
+            $table->string('shipping_dictrictId')->nullable();
+            $table->string('shipping_wardId')->nullable();
+            $table->string('shipping_address_street')->nullable();
+
+
         });
     }
 

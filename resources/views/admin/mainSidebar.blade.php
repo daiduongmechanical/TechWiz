@@ -64,6 +64,99 @@
                     </ul>
                 </li>
 
+                 {{-- VOucher --}}
+                <li class="nav-item menu-open">
+                    <a href="#" class="nav-link active">
+                        <i class=" nav-icon dfas fa-user"></i>
+                        <p>
+                            Voucher management
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{URL::to('/insert_coupon')}}" class="nav-link bg-light text-dark">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p> Create Voucher </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{URL::to('/list_coupon')}}" class="nav-link bg-light text-dark">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Voucher List</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                 {{-- bao cao daonh thu --}}
+                <li class="nav-item menu-open">
+                    <a href="#" class="nav-link active">
+                        <i class=" nav-icon dfas fa-user"></i>
+                        <p>
+                            Statictical
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('statistical.index')}}" class="nav-link bg-light text-dark">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p> Income Statement </p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+
+
+                 {{-- Order --}}
+                <li class="nav-item menu-open">
+                    <a href="#" class="nav-link active">
+                        <i class=" nav-icon dfas fa-user"></i>
+                        <p>
+                            Order management
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+
+
+                       
+                        <li class="nav-item">
+                            <a href="{{URL::to('/manage_order')}}" class="nav-link active ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p> Order management </p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                      {{-- Review-Commnet --}}
+                      <li class="nav-item menu-open">
+                        <a href="#" class="nav-link active">
+                            <i class=" nav-icon dfas fa-user"></i>
+                            <p>
+                                Comment management
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+    
+    
+                           
+                            <li class="nav-item">
+                                <a href="{{ route('listReview') }}" class="nav-link active ">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>List Review</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
