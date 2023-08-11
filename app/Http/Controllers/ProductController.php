@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Image;
 use App\Models\product;
 use Illuminate\Http\Request;
+use App\Models\Provider;
 
 class ProductController extends Controller
 {
@@ -14,6 +15,14 @@ class ProductController extends Controller
 
 
         return view('admin.product.index')->with('product', $product);
+    }
+
+    public function all_product_user()
+    {
+        $product = product::with('images')->with('provider')->get();
+        $provider = Provider::all();
+
+        return view('client.category')->with('products', $product)->with('providers', $provider);
     }
 
     public function update_product(Request $request, $id)

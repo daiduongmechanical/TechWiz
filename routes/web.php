@@ -11,6 +11,7 @@ use App\Http\Controllers\Chat\CreateController;
 use App\Http\Controllers\Chat\GetChatsController;
 use App\Http\Controllers\Chat\GetMessagesController;
 use App\Http\Controllers\Chat\PostMessageController;
+use App\Http\Controllers\ProductController;
 // end chat box
 
 /*
@@ -28,7 +29,7 @@ Route::get('/', function () {
     return view('dashboard');
 })->name('dashboard');
 Route::get('/dashboard2', function () {
-    return view('dashboard2');
+    return view('client.category');
 })->name('dashboard2');
 Route::get('/home', [HomeController::class, 'index']);
 Route::get('/auth/{provider}/redirect', [ProviderController::class, 'redirect']);
@@ -44,6 +45,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+Route::middleware('guest')->group(function () {
+
+    Route::prefix('/product')->group(function () {
+        Route::get('/', [ProductController::class, 'all_product_user']);
+    });
 });
 
 require __DIR__ . '/auth.php';

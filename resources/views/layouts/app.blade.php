@@ -22,13 +22,15 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/footers/">
 
 
+
+
 </head>
 
 
 <body class="font-sans antialiased">
     @include('chat.chat')
     @include('layouts.navigation')
-    <div class="container" >
+    <div class="main__cover--page">
         <section>
             @yield('content')
         </section>
@@ -44,11 +46,11 @@
 
     {{-- chatbox --}}
     <script src="/js/pusher.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.2.min.js"
-        integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.2.min.js" integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA=" crossorigin="anonymous"></script>
     <script src="/js/jquery-cookie.js"></script>
     <script src="/js/chattle_customer.js"></script>
     <script src="/js/handleLogout.js"></script>
+    <script src="/js/handleMenu.js"></script>
 
     {{-- end chat box --}}
 </body>
