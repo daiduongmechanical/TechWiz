@@ -18,10 +18,8 @@ class Provider extends Model
 
     ];
 
-<<<<<<< HEAD
     protected $primaryKey = 'provider_id';
-=======
->>>>>>> origin/hien1
+
     public function products(): HasMany
     {
         return $this->hasMany(product::class, 'product_id');
