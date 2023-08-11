@@ -51,7 +51,7 @@ require __DIR__ . '/auth.php';
 
 
 //realtime chat box
-Route::prefix('chattle')->group(function () {
+    Route::prefix('chattle')->group(function () {
     Route::view('chat', 'chat.chat');
     Route::post('create-chat', CreateController::class);
     Route::post('post-message', PostMessageController::class);
@@ -60,3 +60,4 @@ Route::prefix('chattle')->group(function () {
     Route::get('get-chats', GetChatsController::class);
 });
 // end chat box
+

@@ -28,7 +28,7 @@
                     <table id="discount__table" class="table table-bordered table-hover">
                         <thead class="thead-dark ">
                         <tr>
-                            <th>Provider Id</th>
+                            <th>Provider ID</th>
                             <th>Name</th>
                             <th>Country</th>
                             <th>Logo</th>

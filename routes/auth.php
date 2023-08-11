@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\BlogController;
 
 use App\Http\Controllers\ProviderController;
 
@@ -110,3 +111,14 @@ Route::middleware('is_admin')->group(function () {
         
     });
 
+    
+    Route::prefix('blog')->group(function () {
+        Route::get('/index', [BlogController::class, 'index'])->name('blog.index');
+        Route::get('/delete/{id}', [BlogController::class, 'delete'])->name('blog.delete');
+
+        
+        
+    });
+
+  
+  

@@ -22,3 +22,7 @@ $(".btn-delete-admin").on("click", function (event) {
     let data = $(this).attr("data");
     $(".btn-action-delete-admin").attr("href", `admin/delete/${data}`);
 });
+$(".btn-delete-blog").on("click", function (event) {
+    let data = $(this).attr("data");
+    $(".btn-action-delete-blog").attr("href", `blog/delete/${data}`);
+});

@@ -9,6 +9,12 @@ use App\Models\BlogImage;
 class BlogController extends Controller
 {
 
+    public function index()
+    {
+        $blogs = Blog::all();
+        return view('blog.index', compact('blogs'));
+    }
+    
     public function addBlog(Request $request)
     {
 
@@ -113,9 +119,11 @@ class BlogController extends Controller
         return 'ok';
     }
 
-    public function deleteBlog($id)
+    public function delete($id)
     {
-        Blog::find($id)->delete();
-        return 'ok';
+        $blog = Blog::findOrFail($id);
+        $blog->delete();
+
+        return redirect()->route('blog.index')->with('success', 'Blog deleted successfully.');
     }
 }
