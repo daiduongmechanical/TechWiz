@@ -14,6 +14,6 @@
     <p>You can use registed email to recovery your password in case you lost it </p>
     <p>Please keep this information secure and do not share it with anyone.</p>
     <p>If you have any questions or need assistance, feel free to contact our support team.</p>
-    <p>Best regards,<br> MARU Website Team</p>
+    <p>Best regards,<br> TREE ONE Website Team</p>
 </body>
 </html>

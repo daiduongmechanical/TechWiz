@@ -547,7 +547,7 @@ $(document).ready(function() {
                     <textarea name="deliver-note" id="deliver-note" cols="5" rows="5"></textarea>
                     <div id="disclaimer-message">
                         <input type="checkbox"  id="disclaimerCheck">
-                        I completely agree to MaruDryFruit <span style="text-decoration: underline; color:#0879E1; cursor: pointer;" ng-click="popDisclaimer()">Delivery Disclaimer</span>.
+                        I completely agree to TREE ONE <span style="text-decoration: underline; color:#0879E1; cursor: pointer;" ng-click="popDisclaimer()">Delivery Disclaimer</span>.
                     </div>
 
                     <div class="new-yellow-alert" ng-show="disclaimerAlert">
@@ -583,7 +583,7 @@ $(document).ready(function() {
                           
                               <div class="col-md-13">
                                 @php
-                                $vn_to_usd = ($total)/23480;
+                                $vn_to_usd = ($total);
                                 @endphp
                                 <div id="paypal-button"></div>
                                 <input type="hidden" id="vn_to_usd"  value="{{ round($vn_to_usd,2)}}">

@@ -7,8 +7,7 @@
 <link rel="stylesheet" href="{{ asset('fontend/CSS/product.css')}}">
 {{-- <link rel="stylesheet" href="{{ asset('fontend/CSS/css_1.css')}}"> --}}
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-<style>
-</style>
+
 {{-- Thanh --}}
 <div class="breadcrumb-section breadcrumb-bg-color--golden">
     <div class="breadcrumb-wrapper">
@@ -308,39 +307,36 @@
                                             <div class="swiper-container product-default-slider-4grid-1row">
                                                 <!-- Additional required wrapper -->
                                                 <div class="swiper-wrapper">
-                                                    @foreach ($relatePro as $items)
+                                                   
+                                                    @foreach ($relatePro as $p)
                                                     <!-- End Product Default Single Item -->
                                                     <!-- Start Product Default Single Item -->
                                                     <div class="product-default-single-item product-color--pink swiper-slide">
-                                                        @php
-                                                        $firstImage = $items->images->first();
-                                                        $secondImage = $items->images->count() > 1 ? $items->images[1]->url : null;
-                                                        @endphp
+                                                        
                                                         <div class="image-box">
-                                                            @if ($items->quantity == 0)
+                                                            
+                                                            @if ($p->quantity == 0)
                                                             <div class="image-container">
                                                                 <div class="sold-out-label" style="opacity: 1">Sold Out</div>
-                                                                <img style="opacity: 0.2" src="{{ url('images', $secondImage) }}" alt="">
+                                                                <img style="opacity: 0.2" src=" {{url('img/' . $p->images[0]->url)}} " alt=""/>
                                                             </div>
                                                             @else
-                                                            <a href="{{url('front/productdetails/'.$items->id)}}" class="image-link" id="compareurl{{$items->id}}">
-                                                                <img id="comparepic{{$items->id}}" src='{{url("images/$firstImage->path")}}' alt="">
-                                                                {{-- @if ($secondImage) --}}
-                                                        <img src='{{url("images/$secondImage")}}' alt="">
-                                                        {{-- @endif --}}
+                                                            <a href="{{url('product/'.$p->product_id)}}" class="image-link" id="compareurl{{$p->product_id}}">
+                                                                <img style="width:20%;height:20%" id="comparepic{{$p->product_id}}" src='{{url('img/' . $p->images[0]->url)}} '/>
+                                                            
+                                                 
                                                     </a>
                                                     @endif
-                                                    <div class="action-link">
+                                                    <div class="action-link" style="width:20%;height:40%">
                                                         <form method="POST" action="{{url('front/cart/add')}}" class="action-link-left">
                                                             @csrf
-                                                            <input type="hidden" name="id" value="{{ $items->id }}" />
+                                                            <input type="hidden" name="id" value="{{ $p->product_id }}" />
+                                                           
                                                             <button type="submit" class="btn btn-primary">Add to cart </button>
                                                         </form>
                                                       
                                                       
-                                                        {{-- <div class="action-link-right">
-                                                            <a href="compare.html"><i class="fa-regular fa-shuffle"></i></a>
-                                                        </div> --}}
+                                                      
                                                     </div>
                                                 </div>
                                                 <div class="content">
@@ -371,10 +367,11 @@
                                                     </ul>
                                                 </div>
                                                 <div class="content-right">
-                                                    <span class="price">${{$items->price}}</span>
+                                                    <span class="price">${{$p->price}}</span>
                                                 </div>
                                           </div>
                                         </div>
+                               
                                         @endforeach
                                         <!-- End Product Default Single Item -->
                                        

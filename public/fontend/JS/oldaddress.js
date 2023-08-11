@@ -37,14 +37,13 @@ $(document).ready(function() {
           },
           data: JSON.stringify(requestData),
           success: function(response) {
-            var shippingFee = response.data.total;
-        
+            var shippingFee1 = parseFloat(Math.floor(((response.data.total)/23000)*100)/100);
             var total = parseFloat($('#total').text());
-            var subtotal = shippingFee + total;
+            var subtotal = shippingFee1 + total;
             // Display the shipping fee in the result container
-            $('#shippingFeeValue').text(shippingFee);
+            $('#shippingFeeValue').text(shippingFee1);
             $('#totalValue').text(subtotal);
-            $('#shippingFee').val(shippingFee);
+            $('#shippingFee').val(shippingFee1);
             $('#getsubtotal').val(total);
             $('#total_vnpay').val(subtotal);
           },

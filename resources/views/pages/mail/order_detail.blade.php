@@ -22,6 +22,6 @@
 
     <p>If you have any questions or need further assistance, please don't hesitate to contact us.</p>
 
-    <p>Best regards,<br> MARU Team</p>
+    <p>Best regards,<br>TREE ONE </p>
 </body>
 </html>

@@ -22,6 +22,6 @@
 
     <p>If you didnt get order yet, please immediatly  contact us.</p>
 
-    <p>Best regards,<br> MARU Team</p>
+    <p>Best regards,<br>TREE ONE</p>
 </body>
 </html>

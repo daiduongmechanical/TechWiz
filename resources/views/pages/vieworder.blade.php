@@ -144,10 +144,10 @@
             @else 
               No Coupon Code
             @endif
-            <td>{{number_format($details->product_feeship ,0,',','.')}}đ</td>
+            <td>${{number_format($details->product_feeship ,2,',','.')}}</td>
             <td>{{$details->product_quantity}}</td>
-            <td>{{number_format($details->product_price ,0,',','.')}}đ</td>
-            <td>{{number_format($subtotal ,0,',','.')}}đ</td>
+            <td>${{number_format($details->product_price ,2,',','.')}}</td>
+            <td>${{number_format($subtotal ,2,',','.')}}</td>
             <td>
 
             @if($orders->order_status == 4)
@@ -172,18 +172,18 @@
                 @php
                 $discount = $voucher->discount;
                 $total_after_coupon = ($total* $discount)/100;
-                echo 'Total Discount :'.number_format($total_after_coupon,0,',','.').'</br>';
+                echo 'Total Discount : $'.number_format($total_after_coupon,2,',','.').'</br>';
                 $total_coupon = $total + $details->product_feeship - $total_after_coupon ;
                 @endphp
             @elseif($voucher && $voucher->discounttype == 1)
                 @php
                      $discount = $voucher->discount;
-                echo 'Total Discount :'.number_format( $discount,0,',','.').'k'.'</br>';
+                echo 'Total Discount : $'.number_format( $discount,2,',','.').'$'.'</br>';
                 $total_coupon = $total + $details->product_feeship -  $discount ;
                 @endphp
             @elseif(!$voucher)
             @php
-            echo 'Total Discount :'.number_format( 0,0,',','.').'k'.'</br>';
+            echo 'Total Discount : $'.number_format( 0,2,',','.').''.'</br>';
             $total_coupon = $total + $details->product_feeship ;
             @endphp
             @endif
@@ -192,8 +192,8 @@
                    $total_coupon = $total + $details->product_feeship ;
                    @endphp
 
-              Shipping Fee : {{number_format($details->product_feeship,0,',','.')}}đ</br> 
-              Pay: <span style="color: red">{{number_format($total_coupon,0,',','.')}}đ </span> 
+              Shipping Fee : ${{number_format($details->product_feeship,2,',','.')}}</br> 
+              Pay: <span style="color: red">${{number_format($total_coupon,2,',','.')}}</span> 
             </td>
           </tr>
             </td>

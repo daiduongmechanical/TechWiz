@@ -34,7 +34,7 @@
         // lấy total price để thanh toán paypal
         var shippingFee = $('#shippingFee').val();
         var total = $('#getsubtotal').val();
-        var usd = (parseFloat(shippingFee) + parseFloat(total)) / 23480;
+        var usd = (parseFloat(shippingFee) + parseFloat(total)) / 1;
     
   //   var usd = document.getElementById("vn_to_usd").value;    
     return actions.payment.create({

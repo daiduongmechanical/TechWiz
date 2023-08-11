@@ -149,9 +149,9 @@
    
             <td>
                @if($shippings->shipping_method == 'Free_Ship' )
-               {{number_format(0 ,0,',','.')}}đ</td>
+               ${{number_format(0 ,2,',','.')}}</td>
                @else
-               {{number_format($details->product_feeship ,0,',','.')}}đ</td>
+               ${{number_format($details->product_feeship ,2,',','.')}}</td>
                @endif
             <td>
               {{$details->product_quantity}}
@@ -166,7 +166,7 @@
        
 
             </td>
-            <td>{{number_format($details->product_price ,0,',','.')}}đ</td>
+            <td>${{number_format($details->product_price ,2,',','.')}}</td>
                 
             <td>@if($orders->usedvoucher!=null)
               {{$orders->usedvoucher}}
@@ -174,7 +174,7 @@
               No Coupon Code
             @endif
         </td>
-            <td>{{number_format($subtotal ,0,',','.')}}đ</td>
+            <td>${{number_format($subtotal ,2,',','.')}}</td>
 
           </tr>
         @endforeach
@@ -187,24 +187,24 @@
                   @php
                   $discount = $voucher->discount;
                   $total_after_coupon = ($total* $discount)/100;
-                  echo 'Total Discount :'.number_format($total_after_coupon,0,',','.').'</br>';
+                  echo 'Total Discount : $'.number_format($total_after_coupon,2,',','.').'</br>';
                   $total_coupon = $total + $details->product_feeship - $total_after_coupon ;
                   @endphp
               @elseif($voucher && $voucher->discounttype == 1)
                   @php
                        $discount = $voucher->discount;
-                  echo 'Total Discount :'.number_format( $discount,0,',','.').'k'.'</br>';
+                  echo 'Total Discount : $'.number_format( $discount,2,',','.').''.'</br>';
                   $total_coupon = $total + $details->product_feeship -  $discount ;
                   @endphp
               @elseif(!$voucher)
               @php
-              echo 'Total Discount :'.number_format( 0,0,',','.').'k'.'</br>';
+              echo 'Total Discount : $'.number_format( 0,2,',','.').''.'</br>';
               $total_coupon = $total + $details->product_feeship ;
               @endphp
               @endif
 
-              Shipping Fee : {{number_format($details->product_feeship,0,',','.')}}</br> 
-              Pay: {{number_format($total_coupon,0,',','.')}}đ 
+              Shipping Fee : ${{number_format($details->product_feeship,2,',','.')}}</br> 
+              Pay: ${{number_format($total_coupon,2,',','.')}}
             </td>
           </tr>
           <tr>

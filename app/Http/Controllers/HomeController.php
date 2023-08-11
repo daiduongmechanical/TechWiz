@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\product;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -23,16 +25,40 @@ class HomeController extends Controller
         }
     }
 
+    public function home()
+    
+    {
+        $cart = Cart::fromSession();
+        // $categories = Category::all();
+        // $brands = Brand::all();
+        $id = Auth::id();
+        $user = User::find($id);
+        // lấy 4 sản phẩm added gần nhất
+        $products = Product::with(['images'])
+        ->take(6)
+        ->orderBy('updated_at', 'desc')
+        ->get();
+
+        $topSellingProducts = Product::with(['image','prices','weight'])
+        ->orderBy('sales_count', 'desc')
+        ->take(6)
+        ->get();
+        return view('pages.home',compact('products','topSellingProducts','user','categories','brands','cart'));
+    }
+
+
     public function productDetail($id)
 { 
    
     $product = product::with(['images'])->findOrFail($id);
+    // return $product;
 
   
     $relatePro = product::where('provider_id', $product->provider_id)
-    ->where('product_id', '<>', $id)
+    ->where('product_id', '<>', $id)->with('images')
     ->take(5)
     ->get();
+    // return $relatePro;
     return view('pages.productdetail', compact('product','relatePro'));
 }
 }
