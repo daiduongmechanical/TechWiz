@@ -69,7 +69,7 @@
                 </ul>
             </nav>
             <div class="header-right">
-                <button type="button" class="cart-btn icon-btn">
+                <div class="cart-btn icon-btn">
 
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
                         style="width: 2.5rem;height: 2.5rem;">
@@ -82,8 +82,8 @@
                             </path>
                         </g>
                     </svg>
-                </button>
-                <button type="button" class="search-btn icon-btn">
+                </div>
+                <div class="search-btn icon-btn" id="account-login">
                     @if (Auth::user() == null)
                         <a href="{{ route('login') }}" class="nav-link link-body-emphasis px-2">
                             <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="#000000"
@@ -98,35 +98,38 @@
                             </svg>
                         </a>
                     @else
-                        <div>
+                        <div class="img-account">
 
                             <img src="{{ asset('img/animal_avatar/' . Auth::user()->avatar . '.png') }}"
                                 alt="{{ asset('img/animal_avatar/' . Auth::user()->avatar . '.png') }}" width="40"
                                 height="40" class="rounded-circle" />
                         </div>
-                        <div class="menu-login d-flex flex-column justify-content-center align-items-start ">
+                        <div class="menu-login ">
                             @if (Auth::user()->is_admin == 1)
-                                <div class="px-2"><a
-                                        class="dropdown-item"href="{{ route('admin.home') }}">Manager</a>
+                                <div class="px-2"><a class="dropdown-item "href="{{ route('admin.home') }}"
+                                        style="font-size: 20px">Manager</a>
                                 </div>
                             @endif
 
                             <div class="px-2 border-2 border-bottom" style="width: 100%"><a class="dropdown-item"
-                                    href="{{ route('profile.edit') }}">Profile</a></div>
+                                    href="{{ route('profile.edit') }}" style="margin-bottom:-10px;">
+                                    <p class="" style="font-size: 20px">Profile</p>
+                                </a></div>
                             <div class="px-2 d-flex flex-column justify-content-center align-items-center ">
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
 
-                                    <x-dropdown-link :href="route('logout')"
+                                    <a href="route('logout')"
                                         onclick="event.preventDefault();
-                                        this.closest('form').submit();">
-                                        {{ __('Log Out') }}
-                                    </x-dropdown-link>
+                                        this.closest('form').submit();"
+                                        style="font-size: 20px" class="nav-link">
+                                        Log Out
+                                    </a>
                                 </form>
                             </div>
                         </div>
                     @endif
-                </button>
+                </div>
 
                 <button type="button" class="open-menu-btn">
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -191,6 +194,11 @@
             arrow.addEventListener('click', function() {
                 this.closest(".dropdown").classList.toggle('active')
             })
+        })
+        const btn_account = document.querySelector('#account-login');
+        const menu_login = document.querySelector('.menu-login');
+        btn_account.addEventListener('click', function() {
+            menu_login.classList.toggle('active')
         })
     });
 </script>

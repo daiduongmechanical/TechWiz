@@ -279,11 +279,15 @@
         .header-right .icon-btn .menu-login {
             top: calc(100% + 30px);
             position: absolute;
-            right: -60px;
-            width: 100px;
+            right: 0;
+            width: 150px;
             min-height: 100px;
             background: #f8f9fa;
             box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+            display: none;
+        }
+
+        .header-right .icon-btn .active {
             display: block;
         }
 
