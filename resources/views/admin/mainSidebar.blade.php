@@ -37,11 +37,11 @@
                 <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                 <li class="nav-item menu-open">
-                    <a href="#" class="nav-link active">
-                        <i class=" nav-icon dfas fa-user"></i>
+                    <a href="#" class="nav-link active ">
+                        <i class=" nav-icon dfas fa-user "></i>
                         <p>
                             User management
-                            <i class="right fas fa-angle-left"></i>
+                            <i class="right fas fa-angle-left "></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
@@ -77,19 +77,72 @@
 
 
                         <li class="nav-item">
-                            <a href="{{ url('/admin/product/index') }}" class="nav-link bg-light text-dark">
+                            <a href="{{ url('/admin/list-user') }}" class="nav-link bg-light text-dark">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p> Users management </p>
+                                <p>List Provider</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('product.create') }}" class="nav-link bg-light text-dark">
+                            <a href="{{ url('admin/index') }}" class="nav-link bg-light text-dark">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Create Product</p>
+                                <p>Admin management</p>
+
                             </a>
                         </li>
                     </ul>
                 </li>
+
+
+
+                <li class="nav-item menu-open">
+                    <a href="#" class="nav-link active">
+                        <i class=" nav-icon dfas fa-user"></i>
+                        <p>
+                           Category Management
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+
+                        <li class="nav-item">
+                            <a href="{{ url('category/index') }}" class="nav-link bg-light text-dark">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Category List</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{{ url('category/create') }}" class="nav-link bg-light text-dark">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add Category</p>
+
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <li class="nav-item menu-open">
+                    <a href="#" class="nav-link active">
+                        <i class=" nav-icon dfas fa-user"></i>
+                        <p>
+                            Blog management
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+
+
+                        <li class="nav-item">
+                            <a href="{{ url('blog/index') }}" class="nav-link bg-light text-dark">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Blog List</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+
 
 
 

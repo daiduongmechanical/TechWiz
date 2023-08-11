@@ -1,7 +1,51 @@
 @extends ('admin..app')
 @section('title', 'Product List')
 @section ('content')
+<style>
+    .all
+    {
+        
+       border:3px solid #009879;;
+    }
+    .card-header{
+        background-color: #009879
+    }
 
+    .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+input-group {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+    .input-group-prepend {
+        flex: 0 0 auto; /* Đảm bảo các phần tử này không co giãn */
+    }
+
+    .form-control {
+        flex: 1 1 auto; /* Cho phép các input co giãn để điền đầy không gian */
+
+    }
+    .card {
+    margin-top: 50px;
+}
+.input-group{
+    border: #009879;
+}
+.input-group-prepend .input-group-text {
+    color: saddlebrown	; /* Màu chữ mong muốn */
+  }
+
+  /* Thay đổi màu chữ của label custom-file-label */
+  .custom-file-label {
+    color: saddlebrown	; /* Màu chữ mong muốn */
+  }
+
+
+</style>
 <!-- Lưu tại resources/views/product/index.blade.php -->
 <section class="content">
     <div class="container-fluid">

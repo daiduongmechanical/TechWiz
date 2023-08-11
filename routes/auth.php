@@ -9,11 +9,14 @@ use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ProductController;
-
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProviderController;
 
 Route::middleware('guest')->group(function () {
     Route::get('register', [RegisteredUserController::class, 'create'])
@@ -91,3 +94,42 @@ Route::middleware('is_admin')->group(function () {
         Route::get('/index', [ProductController::class, 'all_product']);
     });
 });
+
+
+
+
+
+
+    Route::prefix('provider')->group(function () {
+        Route::get('/index', [ProviderController::class, 'index']);
+        Route::get('/create', [ProviderController::class, 'create']);
+        Route::post('/add', [ProviderController::class, 'add'])->name('provider/add');
+        Route::post('/update/{id}', [ProviderController::class, 'update']);
+        Route::get('/edit/{id}', [ProviderController::class, 'edit']);
+   
+        
+        
+    });
+
+    
+    Route::prefix('blog')->group(function () {
+        Route::get('/index', [BlogController::class, 'index'])->name('blog.index');
+        Route::get('/delete/{id}', [BlogController::class, 'delete'])->name('blog.delete');
+
+        
+        
+    });
+
+    Route::prefix('category')->group(function () {
+        Route::get('/index', [CategoryController::class, 'index']);
+        Route::get('/create', [CategoryController::class, 'create']);
+        Route::post('/add', [CategoryController::class, 'add'])->name('category/add');
+        Route::post('/update/{id}', [CategoryController::class, 'update']);
+        Route::get('/edit/{id}', [CategoryController::class, 'edit']);
+   
+        
+        
+    });
+
+  
+  

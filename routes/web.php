@@ -12,6 +12,7 @@ use App\Http\Controllers\Chat\CreateController;
 use App\Http\Controllers\Chat\GetChatsController;
 use App\Http\Controllers\Chat\GetMessagesController;
 use App\Http\Controllers\Chat\PostMessageController;
+use App\Http\Controllers\ProductController;
 // end chat box
 
 /*
@@ -29,7 +30,7 @@ Route::get('/', function () {
     return view('dashboard');
 })->name('dashboard');
 Route::get('/dashboard2', function () {
-    return view('dashboard2');
+    return view('client.category');
 })->name('dashboard2');
 Route::get('/home', [HomeController::class, 'index']);
 Route::get('/auth/{provider}/redirect', [ProviderController::class, 'redirect']);
@@ -47,12 +48,19 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::middleware('guest')->group(function () {
+
+    Route::prefix('/product')->group(function () {
+        Route::get('/', [ProductController::class, 'all_product_user']);
+    });
+});
+
 require __DIR__ . '/auth.php';
 
 
 
 //realtime chat box
-Route::prefix('chattle')->group(function () {
+    Route::prefix('chattle')->group(function () {
     Route::view('chat', 'chat.chat');
     Route::post('create-chat', CreateController::class);
     Route::post('post-message', PostMessageController::class);
@@ -61,12 +69,3 @@ Route::prefix('chattle')->group(function () {
     Route::get('get-chats', GetChatsController::class);
 });
 // end chat box
-
-
-//product
-Route::get('/admin/product/create', [ProductController::class, 'create'])->name('product.create');
-Route::post('/admin/product/add_product', [ProductController::class, 'add_product'])->name('product.add');
-
-Route::get('/admin/product/edit/{id}', [ProductController::class, 'edit_product'])->name('product.edit');
-Route::post('/admin/product/update/{id}', [ProductController::class, 'update_product']);
-Route::get('/admin/product/index',[ProductController::class, 'all_product']);

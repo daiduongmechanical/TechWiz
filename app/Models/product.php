@@ -17,7 +17,7 @@ class product extends Model
         'name',
         'description',
         'price',
-        'type',
+        'category_id',
         'provider_id',
         'warehouse_id'
 
@@ -27,16 +27,21 @@ class product extends Model
 
     public function images(): HasMany
     {
-        return $this->hasMany(Image::class, 'image_id');
+        return $this->hasMany(Image::class, 'product_id');
     }
 
     public function quantity(): HasOne
     {
-        return $this->hasOne(Warehouse::class, 'warehouse_id');
+        return $this->hasOne(Warehouse::class, 'product_id');
     }
 
     public function provider(): BelongsTo
     {
-        return $this->belongsTo(Provider::class, 'provider_id');
+        return $this->belongsTo(Provider::class, 'product_id');
+    }
+
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class, 'category_id');
     }
 }

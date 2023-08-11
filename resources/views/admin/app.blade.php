@@ -7,7 +7,19 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>AdminLTE 3 | Starter</title>
     <base href="{{asset("/")}}">
+    <style>/* Căn giữa card trên trang */
+         .custom-card-header {
+        background-color: #007bff; /* Blue color for card header */
+        color: #8B4513; /* Brown color for card title */
+    }
 
+    .custom-file-label::after {
+        border-color: #8B4513; /* Brown color for file input label border */
+    }
+
+
+
+        </style>
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome Icons -->
@@ -19,7 +31,7 @@
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 
     <link rel="stylesheet" href="{{ asset('css/chattle_admin.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('/js/updateProduct.js') }}">
+
 
 </head>
 
