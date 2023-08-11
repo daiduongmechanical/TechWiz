@@ -19,7 +19,7 @@
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 
     <link rel="stylesheet" href="{{ asset('css/chattle_admin.min.css') }}">
-
+    <link rel="stylesheet" href="{{ asset('/js/updateProduct.js') }}">
 
 </head>
 
@@ -72,6 +72,7 @@
     <script src="admins/dist/js/adminlte.min.js"></script>
     <script src="admins/dist/js/managetable.js"></script>
     <script src="admins/dist/js/handlemodalNotify.js"></script>
+    <script src="admins/dist/js/updateProduct.js"></script>
 
     {{-- chat box --}}
     <script src="/js/pusher.min.js"></script>

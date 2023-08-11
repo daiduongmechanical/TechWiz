@@ -77,16 +77,15 @@
 
 
                         <li class="nav-item">
-                            <a href="{{ url('/admin/list-user') }}" class="nav-link bg-light text-dark">
+                            <a href="{{ url('/admin/product/index') }}" class="nav-link bg-light text-dark">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p> Users management </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('admin/index') }}" class="nav-link bg-light text-dark">
+                            <a href="{{ route('product.create') }}" class="nav-link bg-light text-dark">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Admin management</p>
-
+                                <p>Create Product</p>
                             </a>
                         </li>
                     </ul>

@@ -23,7 +23,7 @@ return new class extends Migration
             $table->timestamps();
             $table->foreign('provider_id')->references('provider_id')->on('providers');
         });
-        DB::statement("ALTER TABLE products AUTO_INCREMENT=100000");
+
     }
 
     /**

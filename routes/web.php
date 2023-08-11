@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\ProviderController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -60,3 +61,12 @@ Route::prefix('chattle')->group(function () {
     Route::get('get-chats', GetChatsController::class);
 });
 // end chat box
+
+
+//product
+Route::get('/admin/product/create', [ProductController::class, 'create'])->name('product.create');
+Route::post('/admin/product/add_product', [ProductController::class, 'add_product'])->name('product.add');
+
+Route::get('/admin/product/edit/{id}', [ProductController::class, 'edit_product'])->name('product.edit');
+Route::post('/admin/product/update/{id}', [ProductController::class, 'update_product']);
+Route::get('/admin/product/index',[ProductController::class, 'all_product']);
