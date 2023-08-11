@@ -63,26 +63,26 @@
                     </ul>
                 </li>
 
-<<<<<<< HEAD
+
                 <!-- end user manage -->
 
-=======
+
                  {{-- VOucher --}}
->>>>>>> origin/hien1
+
                 <li class="nav-item menu-open">
                     <a href="#" class="nav-link active">
                         <i class=" nav-icon dfas fa-user"></i>
                         <p>
-<<<<<<< HEAD
-                            Product management
-=======
-                            Voucher management
->>>>>>> origin/hien1
+
+                            {{-- Product management --}}
+
+                            {{-- Voucher management --}}
+
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
-<<<<<<< HEAD
+
 
 
                         <li class="nav-item">
@@ -96,7 +96,7 @@
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Admin management</p>
 
-=======
+
                         <li class="nav-item">
                             <a href="{{URL::to('/insert_coupon')}}" class="nav-link bg-light text-dark">
                                 <i class="far fa-circle nav-icon"></i>
@@ -127,7 +127,7 @@
                             <a href="{{route('statistical.index')}}" class="nav-link bg-light text-dark">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p> Income Statement </p>
->>>>>>> origin/hien1
+
                             </a>
                         </li>
                     </ul>
@@ -135,15 +135,15 @@
 
 
 
-<<<<<<< HEAD
-=======
+
+
                  {{-- Order --}}
->>>>>>> origin/hien1
+
                 <li class="nav-item menu-open">
                     <a href="#" class="nav-link active">
                         <i class=" nav-icon dfas fa-user"></i>
                         <p>
-<<<<<<< HEAD
+
                            Category Management
                             <i class="right fas fa-angle-left"></i>
                         </p>
@@ -173,16 +173,16 @@
                         <i class=" nav-icon dfas fa-user"></i>
                         <p>
                             Blog management
-=======
+
                             Order management
->>>>>>> origin/hien1
+
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
 
 
-<<<<<<< HEAD
+
                         <li class="nav-item">
                             <a href="{{ url('blog/index') }}" class="nav-link bg-light text-dark">
                                 <i class="far fa-circle nav-icon"></i>
@@ -190,21 +190,19 @@
                             </a>
                         </li>
 
-=======
-                       
+           
                         <li class="nav-item">
                             <a href="{{URL::to('/manage_order')}}" class="nav-link active ">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p> Order management </p>
                             </a>
                         </li>
->>>>>>> origin/hien1
+
                     </ul>
                 </li>
 
 
-<<<<<<< HEAD
-=======
+
                       {{-- Review-Commnet --}}
                       <li class="nav-item menu-open">
                         <a href="#" class="nav-link active">
@@ -226,7 +224,7 @@
                             </li>
                         </ul>
                     </li>
->>>>>>> origin/hien1
+
 
 
             </ul>

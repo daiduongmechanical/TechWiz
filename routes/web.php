@@ -42,7 +42,7 @@ use App\Http\Controllers\ReviewController;
 */
 
 Route::get('/', function () {
-    return view('page/home');
+    return view('dashboard');
 })->name('dashboard');
 Route::get('/dashboard2', function () {
     return view('client.category');
@@ -173,4 +173,4 @@ Route::get('/dashboard', [AdminController::class, 'dasboard']);
 //  product detail
 Route::get('/product/{id}', [HomeController::class, 'productDetail'])->name('product.detail');
 
-Route::get('/home', [HomeController::class, 'home']);
+// Route::get('/home', [HomeController::class, 'home']);
